@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col-lg-3 position-relative">
                 <h4 class="footer-hd">Contact Us</h4>
-                <ul class="footer-nav-spec">
+                <ul class="footer-nav-spec footer-ul">
                     <li><img src="{{ asset('assets/web/images/Overlay.png') }}" alt=""> <a href="mailto:info@flyonthemove.com">info@flyonthemove.com</a></li>
                     <!--<li><img src="assets/images/Overlay2.png" alt=""><a href="tel:+1(406)646-2080 ">+1 (406) 646-2080</a></li>-->
                 </ul>
@@ -33,7 +33,7 @@
             </div>
             <div class="col-lg-3 position-relative">
                 <h4 class="footer-hd">Quick Links</h4>
-                <ul class="animate">
+                <ul class="animate footer-ul">
                     <li><a href="{{ route('about') }}">About Us</a></li>
                     <li><a href="{{ route('deals') }}">Deals</a></li>
                     <li><a href="{{ route('destination') }}">Destinations</a></li>
@@ -43,7 +43,7 @@
             </div>
             <div class="col-lg-3 position-relative">
                 <h4 class="footer-hd">Helpful Links</h4>
-                <ul class="animate">
+                <ul class="animate footer-ul">
                     <li><a href="#">List Your Fly Fishing Operation</a></li>
                     <li><a href="{{ route('booking.terms.conditions') }}">Booking Terms</a></li>
                     <li><a href="#">Tour Guide</a></li>
@@ -51,7 +51,7 @@
             </div>
             <div class="col-lg-3">
                 <h4 class="footer-hd">Information's</h4>
-                <ul class="animate">
+                <ul class="animate footer-ul">
                     <li><a href="#">Privacy Policy</a></li>
                     <li><a href="{{ route('terms.conditions') }}">Terms And Conditions</a></li>
                     <li><a href="#">Career</a></li>

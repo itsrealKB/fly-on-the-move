@@ -181,45 +181,46 @@
         </nav>
     </div>
     <script>
-        // document.addEventListener("DOMContentLoaded", function() {
-        //     var dashboard = document.querySelector('.dashboard');
-        //     dashboard.classList.add('active');
-        //     var currentUrl = window.location.pathname;
-        //     var activeLiElements = document.querySelectorAll('.s-nav-link');
-        //     activeLiElements.forEach(function(activeLi) {
-        //         var anchorHref = activeLi.querySelector('a').getAttribute('href');
-        //         var underLi = activeLi.querySelector('ul');
-        //         if (currentUrl.includes(anchorHref)) {
-        //             activeLi.classList.add('active');
-        //             dashboard.classList.remove('active');
-        //         }
-        //         if (underLi) {
-        //             var anchorActive = underLi.querySelectorAll('li');
-        //             anchorActive.forEach(function(anchorLi) {
-        //                 var underAnchorHref = anchorLi.querySelector('a').getAttribute('href');
-        //                 var underAnchorHrefActive = anchorLi.querySelector('a')
-        //                 if (currentUrl.includes(underAnchorHref)) {
-        //                     var closestActiveLi = getClosest(anchorLi, '.s-nav-link');
-        //                     if (closestActiveLi) {
-        //                         closestActiveLi.classList.add('active');
-        //                         dashboard.classList.remove('active');
-        //                         underAnchorHrefActive.classList.add('active');
-        //                     }
-        //                 }
-        //             });
-        //         }
-        //     });
-
-        //     function getClosest(element, selector) {
-        //         while (element && !element.matches(selector)) {
-        //             element = element.parentElement;
-        //         }
-        //         return element;
-        //     }
-        // });
-
-
         document.addEventListener("DOMContentLoaded", function() {
+            var dashboard = document.querySelector('.dashboard');
+            dashboard.classList.add('active');
+            var currentUrl = window.location.pathname;
+            var activeLiElements = document.querySelectorAll('.s-nav-link');
+            activeLiElements.forEach(function(activeLi) {
+                var anchorHref = activeLi.querySelector('a').getAttribute('href');
+                var underLi = activeLi.querySelector('ul');
+                if (currentUrl.includes(anchorHref)) {
+                    activeLi.classList.add('active');
+                    dashboard.classList.remove('active');
+                }
+                if (underLi) {
+                    var anchorActive = underLi.querySelectorAll('li');
+                    anchorActive.forEach(function(anchorLi) {
+                        var underAnchorHref = anchorLi.querySelector('a').getAttribute('href');
+                        var underAnchorHrefActive = anchorLi.querySelector('a')
+                        if (currentUrl.includes(underAnchorHref)) {
+                            var closestActiveLi = getClosest(anchorLi, '.s-nav-link');
+                            if (closestActiveLi) {
+                                closestActiveLi.classList.add('active');
+                                dashboard.classList.remove('active');
+                                underAnchorHrefActive.classList.add('active');
+                            }
+                        }
+                    });
+                }
+            });
+
+            function getClosest(element, selector) {
+                while (element && !element.matches(selector)) {
+                    element = element.parentElement;
+                }
+                return element;
+            }
+        });
+
+        /* Added By Khalil */
+
+        /* document.addEventListener("DOMContentLoaded", function() {
             var dashboard = document.querySelector('.dashboard');
             dashboard.classList.add('active');
             var currentUrl = window.location.pathname;
@@ -240,8 +241,10 @@
                             var closestActiveLi = getClosest(anchorLi, '.s-nav-link');
                             if(closestActiveLi){
                                 dashboard.classList.remove('active');
-                                closestActiveLi.classList.add('active');
-                                underAnchorHrefActive.classList.add('active');
+                                if(currentUrl != '/payment'){
+                                    closestActiveLi.classList.add('active');
+                                    underAnchorHrefActive.classList.add('active');
+                                }
                             }
                         }
                     });
@@ -254,6 +257,6 @@
                 }
                 return element;
             }
-        });
+        }); */
 
     </script>
