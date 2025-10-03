@@ -1,0 +1,898 @@
+@media (max-width:1600px){
+    .order-detail-sec {
+        padding: 60px 60px;
+    }
+.price-box label {
+    font-size: 15px;
+    height: auto;
+    line-height: 1.5;
+    width: 75% !important;
+}
+    html {
+    overflow-x: hidden;
+}
+.payout-form {
+   
+    width: 60%;
+   
+    top: 25%;
+  
+}
+.profile-detail.border-radius-last-child.social-child label{
+    width: 265px;
+}
+body {
+    overflow-x: hidden;
+}
+    .profile-update-area {
+        margin: 125px 0 90px 0;
+    }
+    .side-bar-area {
+        width: 22%;
+    }
+    .dash-chart-box {
+        gap: 15px;
+    }
+    .d-chrt-title span {
+        font-size: 50px;
+    }
+    .d-chrt-title p {
+        font-size: 25px;
+    }
+}
+
+@media (max-width:1500px) {
+    .max-editarea {
+        max-width: 250px;
+        padding-left: 20px;
+    }
+}
+
+@media (max-width:1440px){
+    .active-tr td {
+    font-size: 12px;
+        
+    }
+    td.table-status-reschdule span {
+        font-size: 12px;
+    }
+    td.table-status-complete span {
+        font-size: 12px;
+    }
+    .tbl-head th {
+        font-size: 12px;
+    }
+    .profile-detail label {
+        padding: 30px 20px;
+    }
+    .chart-area {
+        margin: 30px 0 30px 30px;
+    }
+    .dashboard-notification-area {
+        margin: 30px  30px  30px 0;
+    }
+    .task-area {
+        margin: 30px 0 30px 30px;
+    }
+    .booking-area {
+        margin: 30px  30px  30px 0;
+    }
+    .side-nav-btn {
+        padding: 20px;
+    }
+    .dash-chart-box {
+        padding: 27px 12px;;
+    }
+    .d-chrt-title span {
+        font-size: 30px;
+    }
+    .d-chrt-title p {
+        font-size: 19px;
+    }
+}
+
+@media (max-width:1414px){
+    
+}
+
+@media (max-width:1366px){
+    .profile-detail.border-radius-last-child.social-child label {
+    width: 267px;
+}
+    .button-searchreset {
+        padding: 12px 24px;
+    }
+    .max-editarea {
+        max-width: 220px;
+        padding-left: 10px;
+    }
+    .flex-singleroom {
+        padding: 20px 15px;
+    }
+    .payment-det-title p {
+        font-size: 16px;
+    }
+    .room-text h4 {
+        font-size: 24px;
+    }
+    .dash-chart-box {
+        gap: 6px;
+    }
+    .profile-pg-hd p {
+        font-size: 14px;
+    }
+    .chec-li a {
+        padding: 10px 24px 10px 13px;
+    }
+    .profile-pg-hd h3 {
+        font-size: 30px;
+    }
+    .booking-chart-area {
+        margin: 30px 0;
+    }
+}
+
+@media (max-width:1280px){
+    .price-border, .deal-border {
+ 
+    padding: 12px !important;
+  
+}
+.profile-detail.border-radius-last-child.social-child label {
+    width: 258px;
+}
+    ul.chec-li li a {
+    font-size: 12px;
+}
+    .side-bar-area {
+        width: 25%;
+    }
+    .bill-detail-box-area {
+        height: 280px;
+    }
+    .gift-title span {
+        font-size: 60px;
+    }
+    /* .dash-chart-box:nth-child(4){
+        margin-left: 35px;
+    }
+    .dash-chart-box {
+        margin: 25px 0 25px 0px;
+    } */
+    .dash-chart-box {
+        margin: 25px -30px 25px -11px;
+        padding: 10px;
+    }
+    .d-chrt-icon {
+        font-size: 20px;
+    }
+    table#orders-table {
+        overflow: auto;
+        min-width: 1300px;
+    }
+    .table-responsive {
+        min-width: 1300px !important;
+        overflow-x: auto !important;
+    }
+    div.dataTables_wrapper div.dt-row {
+        position: relative;
+        overflow-x: auto;
+    }
+}
+
+@media (max-width:1202px){
+    .opertaion-detail-area {
+        margin: 35px 0;
+    }
+    .operation-detail {
+        padding: 0 15px 0 15px;
+    }
+    .side-bar-area {
+        width: 25%;
+    }
+}
+
+@media (max-width:1024px){
+
+    .dash-chart-box {
+        margin: 24px 0px 25px 0px;
+        padding: 22px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .d-chrt-title {
+        text-align: center;
+    }
+    .responce-copon-card {
+        display: flex;
+        justify-content: center;
+    }
+    .wishlists {
+        padding: 20px 0;
+    }
+    .mob-menu-btn button {
+        display: block;
+        background: transparent;
+        border: none;
+        font-size: 28px;
+        color: #8A92A6;
+    }
+    .menu-serach {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+    .side-bar-area.active {
+        transform: translateX(0px);
+        height: 100vh;
+    }
+    .side-bar-area {
+        display: block;
+        transform: translateX(-1000px);
+        width: 35%;
+        position: absolute;
+        transition: 0.6s all;
+        height: 100vh;
+    }
+    .main-dashboard-area {
+        width: 100%;
+        padding: 0 !IMPORTANT;
+        overflow-x: hidden;
+    }
+    .side-bar-mob-close-btn{
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(354deg, rgba(151, 113, 51, 1) 0%, rgba(249, 160, 19, 1) 100%);
+        color: white;
+        border-radius: 50%;
+    }
+    .side-bar-logo-img img {
+        padding: 48px 17px 8px;
+    }
+}
+
+@media (max-width:991px){
+    .payment-det-title h2 {
+        font-size: 25px;
+    }
+    .payment-det-title p {
+        font-size: 16px;
+    }
+    .profile-pg-hd h3 {
+        font-size: 25px;
+    }
+    .opertaion-detail-area {
+        margin: 35px 0;
+        display: block;
+        width: 73%;
+    }
+    .opr-img img {
+        max-width: 570px;
+        width: 100%;
+    }
+    .search-opartion-area {
+        /* margin: 0 30px; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .overf{
+        overflow: auto;
+    }
+    .order-detail-box-area {
+        min-width: 1000px;
+    }
+    .order-detail-para p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+    .profile-update-area {
+        margin: 0;
+    }
+    .prod-box-detail {
+        height: 290px;
+    }
+    .order-title h1 {
+        font-size: 30px;
+        padding: 25px 0;
+    }
+    .gift-title span {
+        font-size: 120px;
+    }
+    .rev-descrip p {
+        font-size: 14px;
+        line-height: 25px;
+    }
+    input.chng-pass-input {
+        width: 250px;
+    }
+    .rev-star {
+        font-size: 13px;
+    }
+    .prof-chng-pass-p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .booking-area {
+        margin: 30px;
+    }
+    .task-area {
+        margin: 30px;
+    }
+    .dashboard-notification-area {
+        margin: 30px;
+    }
+    .chart-area {
+        margin: 30px;
+    }
+    .head-search-bar input {
+        width: 200px;
+    }
+    .main-dashboard-area::before {
+        height: 470px;
+    }
+    .d-chrt-icon {
+        font-size: 30px;
+    }
+}
+
+@media (max-width:768px){
+    .edit-profile-button{
+        padding: 20px 0 0 0;
+    }
+
+}
+
+@media (max-width:767px){
+    .profile-data-area {
+        margin: 30px 15px;
+        /* border-bottom: 2px solid #e2e2e2; */
+    }
+    .edit-profile-button {
+        padding: 20px 0 0;
+        margin: 0;
+    }
+    .pymt-p h1 {
+        padding: 20px 20px;
+    }
+    .order-detail-sec {
+        padding: 35px;
+    }
+    .prod-box-detail {
+        padding: 20px 20px;
+    }
+    .close-btn-reschdule {
+        top: 10px;
+        right: 10px;
+    }
+    .invoice-popup {
+        margin: 0 10px;
+    }
+    .nortification-dropdown {
+        left: -115px;
+    }
+    .availble-balance-area {
+        padding: 25px 0;
+        max-width: 350px;
+    }
+    .availble-balance-area span {
+        font-size: 50px;
+    }
+    .credit-card-img img {
+        max-width: 350px;
+        height: 250px;
+        width: 100%;
+    }
+    .credit-card-img {
+        display: flex;
+        justify-content: center;
+        padding: 0 30px;
+    }
+    .review-detail-area {
+        align-items: flex-start;
+        display: block;
+    }
+    .pop-book-details-area {
+        height: 500px;
+        overflow: auto;
+    }
+    .reschdule-popup {
+        padding: 0px 0px;
+    }
+    .details-box {
+        padding: 0 0 6px 0px;
+    }
+    .pop-btns {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+    .details-box {
+        padding: 10px 0px;
+    }
+    ul.pagination {
+        justify-content: center;
+    }
+    .pop-btns {
+        padding: 0 0px;
+    }
+    .pop-book-details-area {
+        padding: 20px;
+    }
+    #orders-table_info {
+        padding: 30px 0 0 0;
+        font-size: 18px;
+    }
+    .page-changer-link {
+        gap: 5px;
+    }
+    .dash-chart-box {
+        margin: 25px 0 0px 25px;
+    }
+    .header-pop-back.active {
+        background: rgba( 255, 255, 255, 0.25 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 4px );
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999999999999999999999999999999999999;
+        height: 100%;
+        width: 100%;
+        display: block;
+    }
+    .header-pop-back {
+        display: none;
+    }
+    .serch-close-btn {
+        position: absolute;
+        right: -10px;
+        top: -9px;
+        background: #eeeeeeee;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        box-shadow: 1px 1px 11px 5px #00000012;
+        border: 1px solid #a4a4a4;
+    }
+    .pop-search input {
+        width: 250px;
+        padding: 10px 20px;
+        border: 1px solid #a4a4a4;
+        border-radius: 5px;
+        background-color: #eeeeee;
+        outline: none;
+    }
+    .header-pop {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 50%;
+        width: 250px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .head-search-bar {
+        display: none;
+    }
+    .mob-search-btn button {
+        background: rgba(255, 255, 255, 0.10);
+        border: none;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        color: #8A92A6;
+        display: block;
+    }
+    select.form-select.form-select-sm {
+        width: 70px;
+    }
+    .social-media-link {
+        width: 40px;
+        height: 40px;
+    }
+    .page-chng-link-area {
+        padding: 15px 30px 0;
+    }
+    .page-changer-link a {
+        padding: 11px 11px;
+        font-size: 14px;
+    }
+    #orders-table_filter {
+        float: left;
+        padding: 15px 0 0 0;
+    }
+    .social-media-link-area {
+        justify-content: center;
+    }
+    .fotter-copyright {
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    .side-bar-area.active {
+        transform: translateX(0px);
+        width: 50%;
+    }
+    .side-bar-area {
+        transform: translateX(-800px);
+    }
+    .side-bar-logo-img img {
+        padding: 48px 17px 8px;
+    }
+}
+
+@media (max-width:550px){
+    .side-hd p {
+    font-size: 13px;
+}
+}
+
+@media (max-width:480px){
+    .profile-main-title h1 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #616161;
+    padding: 0 0;
+    line-height: 1.5;
+}
+    .profile-detail input {
+        margin: 0 0 14px 0px;
+    }
+    .index-table-hd {
+        padding: 25px 0 0 10px;
+    }
+    .edit-profile-button {
+        margin: 0px 0 0;
+    }
+    .op-btn button {
+        padding: 12px 25px;
+    }
+    .op-btn-publish button {
+        padding: 12px 25px;
+    }
+    .op-btn-publish {
+        padding: 17px 0 0;
+    }
+    .search-opartion-area {
+        margin: 0 0px;
+    }
+    .op-title h2 {
+        font-size: 24px;
+    }
+    .opertaion-detail-area {
+        margin: 20px 0;
+    }
+    .op-title p {
+        font-size: 16px;
+    }
+    .op-btn {
+        padding: 17px 0 0 0;
+    }
+    .operation-detail {
+        flex-direction: column;
+        gap: 0;
+        margin: 0px 0px 0 0;
+        align-items: flex-start;
+    }
+    .op-dt-area {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        background-color: #cfff;
+        padding: 30px 0;
+    }
+    .opertaion-detail-area {
+        width: 100%;
+    }
+    .wishlist-prod-area {
+        margin: 15px 0;
+    }
+    .add-button-pymt {
+        padding: 20px 0 0 0;
+    }
+    img.card-in-img.img-fluid {
+        display: none;
+    }
+    .card-input-area {
+        width: 100%;
+    }
+    .chart-area-hd h3 {
+        font-size: 24px;
+    }
+    .invoice-popup {
+        padding: 30px 15px;
+    }
+    .order-detail-sec {
+        padding: 35px 0;
+    }
+    .profile-detail label {
+        background-color: transparent;
+    }
+    .file-de-in {
+        width: 100%;
+    }
+    .profile-detail label {
+        padding: 10px 0px 0;
+        border: 0px solid #000;
+    }
+    .profile-pg-hd {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .invoice-popup {
+        overflow: auto;
+        height: 530px;
+    }
+        .side-bar-area.active {
+        width: 70%;
+    }
+    .availble-balance-area {
+        margin: 32px 0;
+    }
+    .table-parent {
+        padding: 30px 0;
+    }
+    .payment-select-radio {
+        flex-direction: column;
+        width: 250px;
+    }
+    /* .card-input-area {
+        padding: 15px 25px 5px;
+    } */
+    .card-input-area h3 {
+        font-size: 16px;
+    }
+    .credit-card-img img {
+        height: 200px;
+    }
+    .radio-box label {
+        width: 85%;
+    }
+    .gift-title span {
+        font-size: 60px;
+    }
+    .offer-detail p {
+        font-size: 14px;
+    }
+    .gift-title h3 {
+        font-size: 16px;
+    }
+    .offer-detail span {
+        font-size: 35px;
+    }
+    .profile-detail {
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        gap: 0px;
+        text-align:start;
+    }
+    .user-detail input {
+    text-align: center;
+    }
+    .update-pass-hd h2 {
+        padding: 15px 0;
+    }
+    .prof-chng-pass-p {
+        margin: 15px 0;
+        padding: 0 30px;
+    }
+    .img-update-btn {
+        margin: 20px 0;
+    }
+    .edit-profile-button {
+        padding: 10px 0;
+    }
+    .profile-detail .col-4 {
+        width: 100%;
+    }
+    .profile-detail .col-7 {
+        width: 100%;
+    }
+    .profile-title {
+        justify-content:start;
+        gap: 10px;
+    }
+    .profile-title span {
+         display: none;
+    }
+    .pop-heading h3 {
+        font-size: 25px;
+    }
+    main {
+        padding: 20px;
+    }
+    header {
+        padding: 20px 0px;
+    }
+    .tasks-pd-area {
+        padding: 15px 15px 20px 15px;
+    }
+    .index-hi-msg h2 {
+        font-size: 23px;
+        padding: 0px;
+    }
+    .page-chng-link-area {
+        padding:15px 0;
+    }
+    .dash-chart-box {
+        margin: 20px 0 0 0;
+    }
+    .chart-area {
+        margin:20px 0px;
+    }
+    .dashboard-notification-area {
+        margin:20px 0;
+    }
+    .task-area {
+        margin:20px 0;
+    }
+    .booking-area {
+        margin:20px 0;
+    }
+    .task-detail-area {
+        padding: 12px;
+    }
+    .task-title {
+        font-size: 12px;
+    }
+    .d-notification-icon {
+        font-size: 17px;
+        padding: 10px;
+    }
+    .notif-title h3 {
+        font-size: 13px;
+    }
+    .notif-title p {
+        font-size: 12px;
+    }
+    .b-detail {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .paid-detail {
+        margin: 0 10px;
+    }
+    .unpaid-detail {
+        margin: 0 10px;
+    }
+    .book-title h2 {
+        font-size: 14px;
+    }
+    .book-detail {
+        padding: 15px 25px;
+    }
+    .chart-area {
+        padding: 0 0px;
+    }
+    .mob-search-btn button {
+        width: 30px;
+        height: 30px;
+    }
+    .head-user-detail {
+        gap: 8px;
+    }
+    .mob-menu-btn button {
+        font-size: 25px;
+    }
+    .header-notif-bell {
+        font-size: 18px;
+        width: 30px;
+        height: 30px;
+    }
+    .booking-chart-area {
+        margin: 0px 0;
+    }
+    .chrt-hd-area {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0;
+    }
+    .profile-data-area {
+        margin: 30px 0;
+    }
+    .input-div {
+        width: 100%;
+    }
+    /* .border-radius {
+        border-bottom: 0px solid #e2e2e2;
+        padding-bottom:0px;
+    } */
+    .payment-det-title {
+        margin-left: 0px;
+    }
+    .paym-para-s {
+        padding: 0 0px;
+    }
+    .profile-pg-hd {
+        padding: 20px 0;
+    }
+    .paymnet-det-para p {
+        line-height: 25px;
+        padding: 30px 0 10px 0;
+        font-size: 15px;
+    }
+    .payment-det-title h2 {
+        font-size: 20px;
+    }
+    .payment-det-title p {
+        font-size: 15px;
+    }
+    .profile-pg-hd h3 {
+        font-size: 25px;
+    }
+    .paym-para-s {
+        font-size: 15px;
+    }
+}
+
+@media (max-width:414px){
+    .go-back-btn {
+        padding: 34px 0 0 0;
+    }
+    .bill-detail-box-area {
+        padding: 20px 20px;
+    }
+    .invoice-pop-up-back {
+        height: 100%;
+    }
+    .nortification-dropdown {
+        left: -60px;
+    }
+    .payment-input-title {
+        flex-direction: column-reverse;
+    }
+    .book-detail {
+        padding: 15px 15px;
+    }
+    .page-changer-link a {
+        padding: 11px 11px;
+        font-size: 12px;
+    }
+    .payment-input-title h2 {
+        padding: 15px 0px;
+    }
+    .payment-input-title {
+        padding: 15px 0px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width:375px){
+    .order-user-detail {
+        font-size: 15px;
+        line-height: 18px;
+    }
+    .profile-pg-hd p {
+        font-size: 13px;
+    }
+    .profile-pg-hd h3 {
+        font-size: 28px;
+    }
+    .credit-card-img img {
+        width: 125%;
+        margin: 0  0px 30px 0;
+    }
+    
+}
+
+@media (max-width:360px){
+    
+}

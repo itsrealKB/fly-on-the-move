@@ -1,0 +1,465 @@
+@media (max-width: 1600px) {
+  .deal-card {
+    height: 715px;
+  }
+  .card-desc p {
+    font-size: 20px;
+  }
+  .card-desc2 p,
+  .quantity-check p {
+    font-size: 13px;
+  }
+  .deal-card .d-flex.from p {
+    font-size: 23px;
+  }
+  .deal-card .card-hd h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1500px) {
+  .offer-wrap-left h3 {
+    font-size: 47px;
+    line-height: 55px;
+  }
+  .fish-sec .row .col-lg-7 .circle-img {
+    height: 210px !important;
+    width: 210px !important;
+  }
+}
+
+@media (max-width: 1440px) {
+  .sec-heading {
+    font-size: 55px;
+  }
+  .banner-content .banner-hd {
+    font-size: 75px;
+  }
+  .deal-card {
+    height: 640px;
+  }
+  .deal-date p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .deal-card {
+    height: auto;
+  }
+}
+
+@media (max-width: 1366px) {
+  .offer-wrap-left {
+    padding: 0 100px;
+  }
+  .deal-card .card-hd h3 {
+    font-size: 27px;
+    width: 140px;
+  }
+  .deal-slides-wrap {
+    padding: 0px 40px;
+  }
+
+  .operating-image {
+    width: 30px !important;
+  }
+  .quantity-check label,
+  .book-btn-wrap .book-btn {
+    font-size: 16px;
+  }
+  .quantity-check input {
+    height: 23px;
+    width: 23px;
+  }
+  .offer-wrap-left h3 {
+    font-size: 41px;
+    line-height: 50px;
+  }
+  .news-letter-wrap .email-input {
+    min-width: 445px;
+  }
+  .header-third-row .operation-btn {
+    font-size: 15px;
+  }
+  .header-third-right img {
+    width: 43px;
+  }
+  header .top-bar p {
+    font-size: 17px;
+  }
+  .header-second-row img {
+    width: 400px;
+  }
+  .footer .col-lg-3.position-relative::after {
+    right: 35px;
+  }
+  .deal-card {
+    height: 675px;
+  }
+  .deal-card .d-flex.from p {
+    font-size: 19px;
+  }
+  .deal-card .card-hd p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 1280px) {
+  #scroll-top-btn::after {
+    font-size: 20px ;
+  }
+  .hd-nav .dropdown button {
+    font-size: 18px;
+  }
+  .deal-card-body {
+    padding: 25px 20px;
+  }
+  .header-third-row {
+    padding: 20px 18px;
+  }
+  .deal-head,
+  .fish-sec .container-fluid,
+  .footer .container,
+  .deal-sec .container-fluid,
+  .deal-slides-wrap {
+    padding: 0 20px !important;
+  }
+  .offer-sec .container-fluid {
+    padding: 0 20px 0 !important;
+  }
+  .deal-sec,
+  .partner-sec {
+    padding: 80px 0px;
+  }
+  .offer-wrap-left h3 {
+    font-size: 39px;
+  }
+  .deal-card .card-hd p {
+    font-size: 13px;
+  }
+    .deal-card {
+        height: 631px;
+    }
+  .fish-sec .row .col-lg-7 .circle-img {
+    right: -20px;
+    bottom: -50px;
+  }
+  .slogan-slide p {
+    font-size: 19px;
+  }
+  .slider-btn-wrapper .deal-prev-arrow {
+    left: -17px !important;
+  }
+
+  .slider-btn-wrapper .deal-next-arrow {
+    right: -17px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .footer .col-lg-3.position-relative::after {
+    right: 10px;
+  }
+}
+
+@media (max-width: 1135px) {
+  .card-desc2 {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 1024px) {
+  .offer-wrap-left h3 {
+    font-size: 35px;
+  }
+  .offer-wrap-left {
+    padding: 0 70px;
+  }
+  .footer .container {
+    padding: 0 !important;
+  }
+  .banner-content .banner-hd {
+    font-size: 60px;
+  }
+  .primary-btn,
+  .secondary-btn {
+    font-size: 14px !important;
+  }
+  .header-third-row .operation-btn {
+    font-size: 13px;
+  }
+  .header-third-right img {
+    width: 40px;
+  }
+  .header-second-row img {
+    width: 350px;
+  }
+  .footer .col-lg-3.position-relative::after {
+    display: none;
+  }
+  .deal-card {
+    height: 700px;
+  }
+}
+
+@media (max-width: 991px) {
+  .footer .row .col-lg-3 {
+    padding: 15px 0px;
+  }
+  .news-letter-wrap {
+    flex-direction: column;
+    align-items: start;
+    gap: 30px;
+  }
+  .offer-wrap {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .offer-wrap-left,
+  .offer-wrap-right {
+    width: 100%;
+  }
+  .offer-wrap-left {
+    padding: 100px 70px;
+  }
+  .card-desc p,
+  .deal-card .d-flex.from p {
+    font-size: 17px;
+  }
+  .deal-date,
+  .quantity-check {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .footer .container {
+    padding: 0 28px !important;
+  }
+  .container-fluid.bottom-bar {
+    padding: 0 20px;
+  }
+  .footer-bottom p {
+    line-height: 22px;
+    font-size: 14px;
+  }
+  .header-second-row {
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  .hamburger {
+    display: block;
+  }
+  .header-second-row img {
+    width: 255px;
+  }
+  .nav-wrapper {
+    display: none;
+  }
+  .mob-nav .ul-parent {
+    display: flex;
+    align-items: start;
+    gap: 30px;
+    margin-bottom: 0;
+    flex-direction: column;
+    background: #16afaf;
+    width: 260px;
+    padding: 35px 10px;
+    transition: 1s;
+    position: fixed;
+    top: 0;
+    left: -1500px;
+    height: 100vh;
+    z-index: 99999;
+    overflow: auto;
+  }
+  .active-sidebar {
+    left: 0 !important;
+    transition: 1s;
+  }
+  .ul-parent .dropdown,
+  .ul-parent .dropdown button {
+    width: 100%;
+  }
+  .ul-parent .dropdown button {
+    border: none;
+    padding: 12px 7px;
+    text-align: start;
+  }
+  header .dropdown-menu.show .dropdown-item {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+  header .dropdown-menu.show {
+    top: 45px !important;
+    width: 100%;
+  }
+
+  .slider-btn-wrapper .deal-prev-arrow,
+  .slider-btn-wrapper .deal-next-arrow {
+    display: none !important;
+  }
+}
+
+@media (max-width: 550px) {
+  .header-third-row .operation-btn {
+    padding: 9px 15px;
+    font-size: 9px;
+  }
+  .header-third-right img {
+    width: 27px;
+  }
+  .header-third-right {
+    gap: 9px;
+  }
+  .header-third-row {
+    padding: 0 12px 18px;
+    flex-wrap: wrap;
+  }
+  .header-second-row {
+    padding: 10px 12px;
+  }
+  .hamburger i {
+    font-size: 30px;
+  }
+
+  .deal-card .card-hd,
+  .deal-date {
+    flex-wrap: wrap;
+    justify-content: space-between !important;
+    gap: 10px;
+  }
+  .deal-card .d-flex.from p {
+    font-size: 16px;
+  }
+  .deal-card .d-flex.from.mb-4 {
+    justify-content: center;
+  }
+  .spec-p img {
+    width: 30px;
+  }
+  ul.slick-dots {
+    padding: 0 !important;
+  }
+  .ribbon {
+    font-size: 14px;
+  }
+  .deal-slides-wrap {
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .quantity-check {
+    justify-content: space-between;
+  }
+  .fish-sec .row .col-lg-7 .circle-img {
+    height: 110px !important;
+    width: 110px !important;
+    right: -5px;
+  }
+  .deal-card .card-hd h3 {
+    font-size: 23px;
+  }
+  .deal-card .card-hd p {
+    font-size: 12px;
+  }
+  .quantity-check label,
+  .deal-card .d-flex.from a {
+    font-size: 13px;
+  }
+  .card-desc p {
+    font-size: 16px;
+  }
+  .book-btn-wrap .book-btn {
+    padding: 10px 22px;
+  }
+  .news-letter-wrap .email-input {
+    min-width: auto;
+  }
+  .news-letter-wrap .footer-logo img {
+    width: 100%;
+  }
+  .news-letter-wrap p {
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+  }
+  .footer ul li a {
+    font-size: 15px;
+  }
+  .deal-head {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  .offer-wrap-left {
+    padding: 85px 10px;
+  }
+  .offer-wrap-left h3 {
+    font-size: 23px;
+    line-height: 30px;
+  }
+  .sec-heading {
+    font-size: 33px;
+  }
+  .primary-btn,
+  .secondary-btn {
+    font-size: 11px !important;
+    padding: 8px 35px;
+  }
+  .banner-content .banner-hd {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  .hero-banner::after {
+    display: none;
+  }
+  .hero-banner::before {
+    background-image: none;
+    background-color: #00000091;
+  }
+  .primary-btn,
+  .secondary-btn {
+    font-size: 12px;
+    padding: 10px 35px;
+  }
+  .news-letter-wrap .email-input input {
+    padding: 11px 20px;
+  }
+  .news-letter-wrap .email-input button {
+    width: 40px;
+    height: 37px;
+    font-size: 14px;
+  }
+  .news-letter-wrap {
+    padding-bottom: 40px;
+  }
+  .footer {
+    padding-top: 40px;
+  }
+  header .top-bar p {
+    font-size: 12px;
+  }
+  .news-letter-wrap > div {
+    width: 100%;
+  }
+  #scroll-top-btn {
+    bottom: 82px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+  }
+  #scroll-top-btn::after {
+    font-size: 20px;
+  }
+  .deal-card-body {
+    padding: 15px 10px;
+}
+}
