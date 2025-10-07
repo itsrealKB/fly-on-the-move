@@ -51,30 +51,43 @@
             class="img-fluid" alt="Phone image">
         </div>
         <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-            <form>
+            <form method="POST" action="/register">
+                @csrf
             <!-- Email input -->
             <div data-mdb-input-init class="form-outline mb-4">
-                <input type="text" id="form1Example13" class="form-control form-control-lg log-input" />
-                <label class="form-label" for="form1Example13">User Name</label>
+                <input type="text" name='name' id="name" value="{{ old('name') }}" class="form-control form-control-lg log-input" />
+                <label class="form-label" for="name">User Name</label> <br/>
+                @error('name')
+                    <small class="fw-bold fst-italic text-danger">{{ $message }}</small>
+                @enderror
             </div>
             <div data-mdb-input-init class="form-outline mb-4">
-                <input type="email" id="form1Example13" class="form-control form-control-lg log-input" />
-                <label class="form-label" for="form1Example13">Email address</label>
+                <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control form-control-lg log-input" />
+                <label class="form-label" for="email">Email address</label> <br/>
+                @error('email')
+                    <small class="fw-bold fst-italic text-danger">{{ $message }}</small>
+                @enderror
             </div>
 
             <!-- Password input -->
             <div data-mdb-input-init class="form-outline mb-4">
-                <input type="password" id="form1Example23" class="form-control form-control-lg log-input" />
-                <label class="form-label" for="form1Example23">Password</label>
+                <input type="password" name="password" id="password" class="form-control form-control-lg log-input" />
+                <label class="form-label" for="password">Password</label> <br/>
+                @error('password')
+                    <small class="fw-bold fst-italic text-danger">{{ $message }}</small>
+                @enderror
             </div>
             <div data-mdb-input-init class="form-outline mb-4">
-                <input type="password" id="form1Example23" class="form-control form-control-lg log-input" />
-                <label class="form-label" for="form1Example23">Confirm Password</label>
+                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control form-control-lg log-input" />
+                <label class="form-label" for="password_confirmation">Confirm Password</label> <br/>
+                @error('password_confirmation')
+                    <small class="fw-bold fst-italic text-danger">{{ $message }}</small>
+                @enderror
             </div>
 
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div class="">
-                <label class="form-label" for="form1Example3">Already Have An Account?</label>
+                <label class="form-label">Already Have An Account?</label>
                 </div>
                 <a href="{{ route('login') }}" class="form-label">Login Here</a>
             </div>

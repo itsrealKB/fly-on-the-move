@@ -18,12 +18,18 @@
                                     <h2>Reset Password</h2>
                                     <p>Enter your email address and we’ll send you an email with instructions to reset your password</p>
                                 </div>
-                                <div class="log-input">
-                                    <input type="email" placeholder="Email">
-                                </div>
-                                <div class="l-login-btn">
-                                    <button>Reset</button>
-                                </div>
+                                <form action="/admin/reset-password" method="POST">
+                                    @csrf
+                                    <div class="log-input">
+                                        <input type="email" name="email" placeholder="Email">
+                                        @error('email')
+                                            <small class="text-danger fw-bold fst-italic">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="l-login-btn">
+                                        <button>Reset</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

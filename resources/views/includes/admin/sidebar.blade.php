@@ -7,7 +7,7 @@
         <div class="side-bar-logo-img">
             <img class="img-fluid" src="{{ asset('assets/admin/images/side-bar-logo.png') }}" alt="">
         </div>
-        <nav class="side-nav">
+        {{-- <nav class="side-nav">
             <ul class="side-nav-btn">
                 <li class="s-nav-link active-li dashboard">
                     <a href="{{ route('dashboard') }}">
@@ -166,7 +166,177 @@
                         </div>
                     </a>
                 </li>
+                <li class="s-nav-link active-li">
+                    <a href="#" class="s-nav-active">
+                        <div class="d-flex gap-1 align-items-center">
+                            <div class="red"><i class="fa-solid fa-right-from-bracket"></i></div>
+                            <div class="side-hd">
+                                <p>Logout</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav> --}}
+        <nav class="side-nav">
+            <ul class="side-nav-btn">
+                <li class="s-nav-link active-li dashboard {{ request()->is('dashboard') ? 'active' : '' }}">
+                    <a href="{{ route('dashboard') }}">
+                        <div class="d-flex gap-1 align-items-center">
+                            <div class="red"><i class="fa-solid fa-chart-simple"></i></div>
+                            <div class="side-hd">
+                                <p>Dashboard</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="s-nav-drop s-nav-link {{ request()->is('fish-operation*') ? 'active' : '' }}">
+                    <div class="side-bar-drop">
+                        <div class="s-nav-link-a">
+                            <a href="{{ route('fish.operation') }}">
+                                <div class="side-hd">
+                                    <div class=" blue "><i class="fa-solid fa-fish"></i></div>
+                                    <p>Fishing Operation</p>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <ul class="chec-li">
+                            <li>
+                                <a href="{{ route('fish.operation') }}" class="checked-link-side {{ request()->is('fish-operation/your-fish-operation') ? 'active' : '' }}">
+                                    Your Fishing Oper...
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('add.fishing') }}" class="checked-link-side {{ request()->is('fish-operation/add-your-fishing') ? 'active' : '' }}">
+                                    Add Your Fishing Oper...
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('room.type') }}" class="checked-link-side {{ request()->is('fish-operation/your-room-type') ? 'active' : '' }}">
+                                    Your Room Types
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('add.room.type') }}" class="checked-link-side {{ request()->is('fish-operation/add-your-room-type') ? 'active' : '' }}">
+                                    Add Your Room Type
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('offers.and.deals') }}" class="checked-link-side {{ request()->is('fish-operation/your-offers-and-deals') ? 'active' : '' }}">
+                                    Your Deals
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('add.offers.and.deals') }}" class="checked-link-side {{ request()->is('fish-operation/add-your-offers-and-deals') ? 'active' : '' }}">
+                                    Add Your Deal
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="s-nav-drop s-nav-link {{ request()->is('profile*') ? 'active' : '' }}">
+                    <div class="side-bar-drop">
+                        <div class="s-nav-link-a">
+                            <a href="{{ route('my.profile') }}">
+                                <div class="side-hd">
+                                    <div class=" blue "><i class="fa-regular fa-user"></i></div>
+                                    <p>My Profile</p>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <ul class="chec-li">
+                            <li>
 
+                                <a href="{{ route('my.profile') }}" class="checked-link-side {{ request()->is('profile/my-profile') ? 'active' : '' }}">
+                                    Account Info
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('contact.us') }}" class="checked-link-side {{ request()->is('profile/contact-us') ? 'active' : '' }}">
+                                    Contacts
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.payment.detail') }}" class="checked-link-side {{ request()->is('profile/payment-detail') ? 'active' : '' }}">
+                                    Payment Details
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="s-nav-link active-li {{ request()->is('booking') ? 'active' : '' }}">
+                    <a href="{{ route('booking') }}" class="s-nav-active">
+                        <div class="d-flex gap-1 align-items-center">
+                            <div class="yellow"><i class="fa-solid fa-check-to-slot"></i></div>
+                            <div class="side-hd">
+                                <p>Bookings</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="s-nav-link active-li {{ request()->is('invoices') ? 'active' : '' }}">
+                    <a href="{{ route('invoices') }}" class="s-nav-active">
+                        <div class="d-flex gap-1 align-items-center">
+                            <div class="pink"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="side-hd">
+                                <p>Invoices</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="s-nav-drop s-nav-link {{ request()->is('wallet*') ? 'active' : '' }}">
+                    <div class="side-bar-drop">
+                        <div class="s-nav-link-a ">
+                            <a href="{{ route('my.wallet') }}">
+                                <div class="side-hd">
+                                    <div class=" blue "><i class="fa-regular fa-user"></i></div>
+                                    <p>My Wallets</p>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <ul class="chec-li">
+                            <li>
+                                <a href="{{ route('my.wallet') }}" class="checked-link-side {{ request()->is('wallet/my-wallet') ? 'active' : '' }}">
+                                    Wallet
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('payout') }}" class="checked-link-side {{ request()->is('wallet/payout') ? 'active' : '' }}">
+                                    Withdraw
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="s-nav-link active-li {{ request()->is('payment') ? 'active' : '' }}">
+                    <a href="{{ route('payment') }}" class="s-nav-active">
+                        <div class="d-flex gap-1 align-items-center">
+                            <div class="yellow"><i class="fa-solid fa-credit-card"></i></div>
+                            <div class="side-hd">
+                                <p>Payment Method</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="s-nav-link active-li {{ request()->is('coupon') ? 'active' : '' }}">
+                    <a href="{{ route('coupon') }}" class="s-nav-active">
+                        <div class="d-flex gap-1 align-items-center">
+                            <div class="green"><i class="fa-solid fa-receipt"></i></div>
+                            <div class="side-hd">
+                                <p>Coupons</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
                 <li class="s-nav-link active-li">
                     <a href="#" class="s-nav-active">
                         <div class="d-flex gap-1 align-items-center">
@@ -181,7 +351,7 @@
         </nav>
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        /* document.addEventListener("DOMContentLoaded", function() {
             var dashboard = document.querySelector('.dashboard');
             dashboard.classList.add('active');
             var currentUrl = window.location.pathname;
@@ -216,7 +386,7 @@
                 }
                 return element;
             }
-        });
+        }); */
 
         /* Added By Khalil */
 

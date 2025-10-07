@@ -24,7 +24,7 @@ function toggleActiveClass(checkbox) {
   }
 }
 
-const currentPath = window.location.href.split("/");
+/* const currentPath = window.location.href.split("/");
 const path = currentPath[currentPath.length - 1];
 
 const navLinks = document.querySelectorAll(".s-nav-link a");
@@ -32,10 +32,10 @@ const navLinks = document.querySelectorAll(".s-nav-link a");
 navLinks.forEach((link) => {
   link.classList.remove("active");
 
-  if (link.getAttribute("href") === path) {
-      link.classList.add("active");
+  if(link.getAttribute("href") === path) {
+    link.classList.add("active");
   }
-});
+}); */
 
 // Active Links Function Modified By Khalil Rind
 /* navLinks.forEach((link) => {

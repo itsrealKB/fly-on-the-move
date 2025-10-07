@@ -17,16 +17,34 @@
                                 <div class="log-f-title">
                                     <h1>Insert your <strong>Email</strong> and <strong>Password</strong></h1>
                                 </div>
-                                <div class="log-input">
-                                    <input type="text" placeholder="Name">
-                                    <input type="email" placeholder="Email">
-                                    <input type="number" placeholder="Phone">
-                                    <input type="password" placeholder="Type your password">
-                                    <input type="password" placeholder="Re-type your password">
-                                </div>
-                                <div class="l-login-btn">
-                                    <button>Register</button>
-                                </div>
+                                <form action="/admin/register" method="POST">
+                                    @csrf
+                                    <div class="log-input">
+                                        <input type="text" name="name" placeholder="Name">
+                                        @error('name')
+                                            <small class="text-danger fw-bold fst-italic">{{ $message }}</small>
+                                        @enderror
+                                        <input type="email" name="email" placeholder="Email">
+                                        @error('email')
+                                            <small class="text-danger fw-bold fst-italic">{{ $message }}</small>
+                                        @enderror
+                                        <input type="number" name="number" placeholder="Phone">
+                                        @error('number')
+                                            <small class="text-danger fw-bold fst-italic">{{ $message }}</small>
+                                        @enderror
+                                        <input type="password" name="password" placeholder="Type your password">
+                                        @error('password')
+                                            <small class="text-danger fw-bold fst-italic">{{ $message }}</small>
+                                        @enderror
+                                        <input type="password" name="password_confirmation" placeholder="Re-type your password">
+                                        @error('password_confirmation')
+                                            <small class="text-danger fw-bold fst-italic">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="l-login-btn">
+                                        <button>Register</button>
+                                    </div>
+                                </form>
                                 <div class="l-forget-link">
                                     <p>Already a member? </p><a href="{{ route('admin.login') }}">Login Now</a>
                                 </div>

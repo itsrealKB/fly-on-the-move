@@ -226,7 +226,7 @@ p.notification-link {
   border-radius: 50%;
   object-fit: cover;
 }
-.header-dropdown a {
+.header-dropdown a, .header-dropdown button {
   background-color: transparent;
   border: none;
   color: #16afaf;

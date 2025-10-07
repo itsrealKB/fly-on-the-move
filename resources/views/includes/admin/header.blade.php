@@ -142,12 +142,17 @@
                         <img src="{{ asset('assets/admin/images/user-header-img.png') }}" alt="">
                         <div class="dropdown header-dropdown">
                         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            John Michael
+                            {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Action</a></li>
                             <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li>
+                                <form action="/admin/logout" method="POST">
+                                    @csrf
+                                    <button class="dropdown-item">Logout</button>
+                                </form>
+                            </li>
                         </ul>
                         </div>
                     </div>

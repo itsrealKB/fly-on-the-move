@@ -259,9 +259,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     </div>
-                                                    
+
                 </div>
             </div>
         </section>
@@ -337,8 +337,8 @@
                         </div>
                     </div>
                 </div>
-            </div>     
-        </div>     
+            </div>
+        </div>
         <div class="booking-pop-up-back">
             <div class="reschdule-popup">
                 <div class="close-btn-reschdule" onclick="bookingPopupClose()" >
@@ -419,7 +419,7 @@
                         </div>
                     </div>
                 </div>
-            </div>     
+            </div>
     </div>
 @endsection
 
@@ -464,13 +464,13 @@
             });
         });
     </script>
-       
+
     <script>
             const carupWrap = document.querySelector('.rechdule-pop-up-back')
             function carup() {
             carupWrap.classList.add('active')
             }
-            
+
             function carupClose() {
             console.log("hello")
             carupWrap.classList.remove('active')
@@ -482,7 +482,7 @@
             function bookingPopup() {
             bookingPopupWrap.classList.add('active')
             }
-            
+
             function bookingPopupClose() {
             console.log("hello")
             bookingPopupWrap.classList.remove('active')

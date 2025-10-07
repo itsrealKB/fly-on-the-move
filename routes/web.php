@@ -1,14 +1,16 @@
 <?php
 
+use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/login', function () {
-    return view('auth.web.login');
-})->name('login');
-
-Route::get('/register', function () {
-    return view('auth.web.register');
-})->name('register');
+Route::controller(AuthController::class)->group(function(){
+    Route::get('/register', [AuthController::class, 'registerForm'])->name('register');
+    Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
+    Route::post('/register',[AuthController::class, 'register']);
+    Route::post('/login',[AuthController::class, 'login']);
+    Route::post('/logout',[AuthController::class, 'logout']);
+});
 
 Route::get('/forget-password', function () {
     return view('auth.web.forget-password');
@@ -93,7 +95,47 @@ Route::get('/partner-help', function () {
         return view('screens.admin.index');
     })->name('dashboard');
 
-    Route::get('/your-fish-operation', function () {
+    Route::prefix('fish-operation')->group(function () {
+        Route::get('/your-fish-operation', function () {
+            return view('screens.admin.your-fish-operation');
+        })->name('fish.operation');
+
+        Route::get('/add-your-fishing', function () {
+            return view('screens.admin.add-your-fishing');
+        })->name('add.fishing');
+
+        Route::get('/your-room-type', function () {
+            return view('screens.admin.your-room-type');
+        })->name('room.type');
+
+        Route::get('/add-your-room-type', function () {
+            return view('screens.admin.add-your-room-type');
+        })->name('add.room.type');
+
+        Route::get('/your-offers-and-deals', function () {
+            return view('screens.admin.your-offers-and-deals');
+        })->name('offers.and.deals');
+
+        Route::get('/add-your-offers-and-deals', function () {
+            return view('screens.admin.add-your-offers-and-deals');
+        })->name('add.offers.and.deals');
+    });
+
+    Route::prefix('profile')->group(function () {
+        Route::get('/my-profile', function () {
+            return view('screens.admin.my-profile');
+        })->name('my.profile');
+
+        Route::get('/contact-us', function () {
+            return view('screens.admin.contact-us');
+        })->name('contact.us');
+
+        Route::get('/payment-detail', function () {
+            return view('screens.admin.payment-detail');
+        })->name('admin.payment.detail');
+    });
+
+    /* Route::get('/your-fish-operation', function () {
         return view('screens.admin.your-fish-operation');
     })->name('fish.operation');
 
@@ -115,9 +157,9 @@ Route::get('/partner-help', function () {
 
     Route::get('/add-your-offers-and-deals', function () {
         return view('screens.admin.add-your-offers-and-deals');
-    })->name('add.offers.and.deals');
+    })->name('add.offers.and.deals'); */
 
-    Route::get('/my-profile', function () {
+    /* Route::get('/my-profile', function () {
         return view('screens.admin.my-profile');
     })->name('my.profile');
 
@@ -127,7 +169,7 @@ Route::get('/partner-help', function () {
 
     Route::get('/payment-detail', function () {
         return view('screens.admin.payment-detail');
-    })->name('admin.payment.detail');
+    })->name('admin.payment.detail'); */
 
     Route::get('/booking', function () {
         return view('screens.admin.booking');
@@ -137,13 +179,23 @@ Route::get('/partner-help', function () {
         return view('screens.admin.invoices');
     })->name('invoices');
 
-    Route::get('/my-wallet', function () {
+    /* Route::get('/my-wallet', function () {
         return view('screens.admin.my-wallet');
     })->name('my.wallet');
 
     Route::get('/payout', function () {
         return view('screens.admin.payout');
-    })->name('payout');
+    })->name('payout'); */
+
+    Route::prefix('wallet')->group(function () {
+        Route::get('/my-wallet', function () {
+            return view('screens.admin.my-wallet');
+        })->name('my.wallet');
+
+        Route::get('/payout', function () {
+            return view('screens.admin.payout');
+        })->name('payout');
+    });
 
     Route::get('/payment', function () {
         return view('screens.admin.payment');
@@ -153,7 +205,7 @@ Route::get('/partner-help', function () {
         return view('screens.admin.coupon');
     })->name('coupon');
 
-    Route::get('/car-hire', function () {
+    Route::get('/car-hire', function (): View {
         return view('screens.admin.car-hire');
     })->name('car.hire');
 
@@ -169,26 +221,29 @@ Route::get('/partner-help', function () {
         return view('screens.admin.hotel');
     })->name('hotel');
 
-    Route::prefix('admin')->group(function () {
-        Route::get('/login', function () {
-            return view('auth.admin.login');
-        })->name('admin.login');
+    Route::controller(AdminAuthController::class)->prefix('admin')->group(function () {
+        Route::get('/register',[AdminAuthController::class,'registerForm'])->name('admin.register');
+        Route::get('/login',[AdminAuthController::class,'loginForm'])->name('admin.login');
+        Route::post('/register',[AdminAuthController::class,'register']);
+        Route::post('/login',[AdminAuthController::class,'login']);
+        Route::post('/logout',[AdminAuthController::class,'logout']);
+        Route::get('/reset-password',[AdminAuthController::class,'resetPasswordForm'])->name('admin.reset.password');
+        Route::post('/reset-password',[AdminAuthController::class,'resetPassword']);
+        Route::get('/update-password',[AdminAuthController::class,'updatePasswordForm'])->name('admin.update.password');
+        Route::post('/update-password',[AdminAuthController::class,'updatePassword']);
 
-        Route::get('/reset-password', function () {
-            return view('auth.admin.reset-password');
-        })->name('admin.reset.password');
+        // Route::get('/reset-password', function () {
+        //     return view('auth.admin.reset-password');
+        // })->name('admin.reset.password');
 
-        Route::get('/signup', function () {
-            return view('auth.admin.signup');
-        })->name('admin.signup');
+        // Route::get('/update-password', function () {
+        //     return view('auth.admin.update-password');
+        // })->name('admin.update.password');
 
         Route::get('/success-login', function () {
             return view('auth.admin.success-login');
         })->name('admin.success.login');
 
-        Route::get('/update-password', function () {
-            return view('auth.admin.update-password');
-        })->name('admin.update.password');
     });
 
 /* Admin Routes */

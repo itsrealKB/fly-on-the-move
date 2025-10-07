@@ -17,13 +17,23 @@
                                 <div class="succ-title">
                                     <h2>Update Your Password</h2>
                                 </div>
-                                <div class="log-input">
-                                    <input type="password" placeholder="Enter your updated password">
-                                    <input type="password" placeholder="Re-enter your password">
-                                </div>
-                                <div class="l-login-btn">
-                                    <button>Back to login</button>
-                                </div>
+                                <form action="/admin/update-password" method="POST">
+                                    @csrf
+                                    <div class="log-input">
+                                        <input type="password" name="passowrd" placeholder="Enter your updated password"/>
+                                        @error('password')
+                                            <small class="text-danger fw-bold fst-italic">{{ $message }}</small>
+                                        @enderror
+
+                                        <input type="password" name="password_confirmation" placeholder="Re-enter your password"/>
+                                        @error('password_confirmation')
+                                            <small class="text-danger fw-bold fst-italic">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="l-login-btn">
+                                        <button>Update Password</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

@@ -27,7 +27,15 @@
                     <a href="#">
                         <img src="{{ asset('assets/web/images/header-profile-img.png') }}" alt="">
                     </a>
-                    <a href="#" class="operation-btn">Register</a>
+                    @guest
+                        <a href="{{ route('register') }}" class="operation-btn">Register</a>
+                    @endguest
+                    @auth
+                        <form action="/logout" method="POST">
+                            @csrf
+                            <button class="operation-btn border-0">Logout</button>
+                        </form>
+                    @endauth
                 </div>
             </div>
 
