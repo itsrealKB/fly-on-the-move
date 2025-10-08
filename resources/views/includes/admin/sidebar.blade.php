@@ -1,4 +1,3 @@
-
 <div class="user-main-area">
     <div class="side-bar-area">
         <div class="side-bar-mob-close-btn">
@@ -190,6 +189,35 @@
                         </div>
                     </a>
                 </li>
+                <li class="s-nav-drop s-nav-link {{ request()->is('cms*') ? 'active' : '' }}">
+                    <div class="side-bar-drop">
+                        <div class="s-nav-link-a">
+                            <a href="{{ route('image.gallery') }}">
+                                <div class="side-hd">
+                                    <div class=" blue "><i class="fa-solid fa-image"></i></i></div>
+                                    <p>CMS</p>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <ul class="chec-li">
+                            <li>
+                                <a href="{{ route('image.gallery') }}"
+                                    class="checked-link-side {{ request()->is('cms/image-gallery') ? 'active' : '' }}">
+                                    Image Gallery
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('video.gallery') }}"
+                                    class="checked-link-side {{ request()->is('cms/video-gallery') ? 'active' : '' }}">
+                                    Video Gallery
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 <li class="s-nav-drop s-nav-link {{ request()->is('fish-operation*') ? 'active' : '' }}">
                     <div class="side-bar-drop">
                         <div class="s-nav-link-a">
@@ -205,32 +233,38 @@
                         </div>
                         <ul class="chec-li">
                             <li>
-                                <a href="{{ route('fish.operation') }}" class="checked-link-side {{ request()->is('fish-operation/your-fish-operation') ? 'active' : '' }}">
+                                <a href="{{ route('fish.operation') }}"
+                                    class="checked-link-side {{ request()->is('fish-operation/your-fish-operation') ? 'active' : '' }}">
                                     Your Fishing Oper...
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('add.fishing') }}" class="checked-link-side {{ request()->is('fish-operation/add-your-fishing') ? 'active' : '' }}">
+                                <a href="{{ route('add.fishing') }}"
+                                    class="checked-link-side {{ request()->is('fish-operation/add-your-fishing') ? 'active' : '' }}">
                                     Add Your Fishing Oper...
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('room.type') }}" class="checked-link-side {{ request()->is('fish-operation/your-room-type') ? 'active' : '' }}">
+                                <a href="{{ route('room.type') }}"
+                                    class="checked-link-side {{ request()->is('fish-operation/your-room-type') ? 'active' : '' }}">
                                     Your Room Types
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('add.room.type') }}" class="checked-link-side {{ request()->is('fish-operation/add-your-room-type') ? 'active' : '' }}">
+                                <a href="{{ route('add.room.type') }}"
+                                    class="checked-link-side {{ request()->is('fish-operation/add-your-room-type') ? 'active' : '' }}">
                                     Add Your Room Type
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('offers.and.deals') }}" class="checked-link-side {{ request()->is('fish-operation/your-offers-and-deals') ? 'active' : '' }}">
+                                <a href="{{ route('offers.and.deals') }}"
+                                    class="checked-link-side {{ request()->is('fish-operation/your-offers-and-deals') ? 'active' : '' }}">
                                     Your Deals
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('add.offers.and.deals') }}" class="checked-link-side {{ request()->is('fish-operation/add-your-offers-and-deals') ? 'active' : '' }}">
+                                <a href="{{ route('add.offers.and.deals') }}"
+                                    class="checked-link-side {{ request()->is('fish-operation/add-your-offers-and-deals') ? 'active' : '' }}">
                                     Add Your Deal
                                 </a>
                             </li>
@@ -253,17 +287,20 @@
                         <ul class="chec-li">
                             <li>
 
-                                <a href="{{ route('my.profile') }}" class="checked-link-side {{ request()->is('profile/my-profile') ? 'active' : '' }}">
+                                <a href="{{ route('my.profile') }}"
+                                    class="checked-link-side {{ request()->is('profile/my-profile') ? 'active' : '' }}">
                                     Account Info
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('contact.us') }}" class="checked-link-side {{ request()->is('profile/contact-us') ? 'active' : '' }}">
+                                <a href="{{ route('contact.us') }}"
+                                    class="checked-link-side {{ request()->is('profile/contact-us') ? 'active' : '' }}">
                                     Contacts
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.payment.detail') }}" class="checked-link-side {{ request()->is('profile/payment-detail') ? 'active' : '' }}">
+                                <a href="{{ route('admin.payment.detail') }}"
+                                    class="checked-link-side {{ request()->is('profile/payment-detail') ? 'active' : '' }}">
                                     Payment Details
                                 </a>
                             </li>
@@ -305,12 +342,14 @@
                         </div>
                         <ul class="chec-li">
                             <li>
-                                <a href="{{ route('my.wallet') }}" class="checked-link-side {{ request()->is('wallet/my-wallet') ? 'active' : '' }}">
+                                <a href="{{ route('my.wallet') }}"
+                                    class="checked-link-side {{ request()->is('wallet/my-wallet') ? 'active' : '' }}">
                                     Wallet
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('payout') }}" class="checked-link-side {{ request()->is('wallet/payout') ? 'active' : '' }}">
+                                <a href="{{ route('payout') }}"
+                                    class="checked-link-side {{ request()->is('wallet/payout') ? 'active' : '' }}">
                                     Withdraw
                                 </a>
                             </li>

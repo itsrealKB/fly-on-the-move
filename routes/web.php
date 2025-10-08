@@ -2,7 +2,11 @@
 
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ImageGalleryController;
+use App\Http\Controllers\VideoGalleryController;
 use Illuminate\Support\Facades\Route;
+
+
 
 Route::controller(AuthController::class)->group(function(){
     Route::get('/register', [AuthController::class, 'registerForm'])->name('register');
@@ -43,10 +47,6 @@ Route::get('/salt-water', function () {
 Route::get('/rental-gear-rent-this-rod', function () {
     return view('screens.web.rental-gear-rent-this-rod');
 })->name('rental.gear');
-
-Route::get('/gallery', function () {
-    return view('screens.web.gallery');
-})->name('gallery');
 
 Route::get('/all-gallery-video', function () {
     return view('screens.web.all-gallery-video');
@@ -205,7 +205,7 @@ Route::get('/partner-help', function () {
         return view('screens.admin.coupon');
     })->name('coupon');
 
-    Route::get('/car-hire', function (): View {
+    Route::get('/car-hire' ,function() {
         return view('screens.admin.car-hire');
     })->name('car.hire');
 
@@ -222,33 +222,31 @@ Route::get('/partner-help', function () {
     })->name('hotel');
 
     Route::controller(AdminAuthController::class)->prefix('admin')->group(function () {
-        Route::get('/register',[AdminAuthController::class,'registerForm'])->name('admin.register');
+        // Route::get('/register',[AdminAuthController::class,'registerForm'])->name('admin.register');
         Route::get('/login',[AdminAuthController::class,'loginForm'])->name('admin.login');
-        Route::post('/register',[AdminAuthController::class,'register']);
-        Route::post('/login',[AdminAuthController::class,'login']);
-        Route::post('/logout',[AdminAuthController::class,'logout']);
+        // Route::post('/register',[AdminAuthController::class,'register']);
+        Route::post('/login',[AdminAuthController::class,'login'])->name('admin.login');
+        Route::post('/logout',[AdminAuthController::class,'logout'])->name('admin.logout');
         Route::get('/reset-password',[AdminAuthController::class,'resetPasswordForm'])->name('admin.reset.password');
-        Route::post('/reset-password',[AdminAuthController::class,'resetPassword']);
-        Route::get('/update-password',[AdminAuthController::class,'updatePasswordForm'])->name('admin.update.password');
-        Route::post('/update-password',[AdminAuthController::class,'updatePassword']);
-
-        // Route::get('/reset-password', function () {
-        //     return view('auth.admin.reset-password');
-        // })->name('admin.reset.password');
-
-        // Route::get('/update-password', function () {
-        //     return view('auth.admin.update-password');
-        // })->name('admin.update.password');
-
-        Route::get('/success-login', function () {
-            return view('auth.admin.success-login');
-        })->name('admin.success.login');
-
-    });
+        Route::post('/reset-password',[AdminAuthController::class,'resetPassword'])->name('admin.reset.password');
+        Route::get('/update-password/{token}',[AdminAuthController::class,'updatePasswordForm'])->name('admin.update.password');
+        Route::post('/update-password',[AdminAuthController::class,'updatePassword'])->name('admin.update.password.action');
+        Route::get('/success-login',[AdminAuthController::class,'successLogin'])->name('admin.success.login');
+    })->middleware(['auth']);
 
 /* Admin Routes */
 
 
+Route::get('/gallery',[ImageGalleryController::class,'index'])->name('gallery');
 
+Route::prefix('cms')->group(function(){
+    Route::get('/image-gallery', [ImageGalleryController::class,'create'])->name('image.gallery');
+    Route::post('/image-gallery', [ImageGalleryController::class,'store'])->name('image.gallery');
+    Route::get('/image-gallery/{cmsMeta}', [ImageGalleryController::class,'show'])->name('view.gallery.image');
+    Route::get('/image-gallery/edit/{cmsMeta}', [ImageGalleryController::class,'edit'])->name('edit.gallery.image');
+    Route::get('/video-gallery', [VideoGalleryController::class,'create'])->name('video.gallery');
+    Route::post('/video-gallery', [VideoGalleryController::class,'store'])->name('video.gallery');
+
+});
 
 

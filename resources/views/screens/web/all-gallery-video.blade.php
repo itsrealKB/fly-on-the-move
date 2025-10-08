@@ -57,8 +57,8 @@
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
-                    <iframe class="elementor-video-iframe" src="https://www.youtube.com/embed/kZlC0b092kM" title="Collon Cura"
-                        frameborder="0"
+                    <iframe class="elementor-video-iframe" src="https://www.youtube.com/embed/kZlC0b092kM"
+                        title="Collon Cura" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -94,6 +94,32 @@
 
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12 video-wrapper">
+                    <div class="video-container">
+                        <img src="https://images.unsplash.com/photo-1526779259212-939e64788e3c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D"
+                            class="backend-video video-thumb" alt="">
+                        <video class="backend-video video-player" controls style="display:none;">
+                            <source src="https://youtu.be/0aZzEWJoTBY" type="video/mp4">
+                        </video>
+
+                        <!-- YouTube style play button -->
+                        <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 video-wrapper">
+                    <div class="video-container">
+                        <img src="https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=1024x1024&w=0&k=20&c=z8_rWaI8x4zApNEEG9DnWlGXyDIXe-OmsAyQ5fGPVV8="
+                            class="backend-video video-thumb" alt="">
+                        <video class="backend-video video-player" controls style="display:none;">
+                            <source src="https://youtu.be/0aZzEWJoTBY" type="video/mp4">
+                        </video>
+
+                        <!-- YouTube style play button -->
+                        <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 @endsection
@@ -101,3 +127,54 @@
 @push('scripts')
 
 @endpush
+<style>
+    .video-container {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+    }
+
+    .backend-video {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+    }
+
+    .play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #FF1333;
+        color: white;
+        border-radius: 10px;
+        padding: 15px 28px;
+        text-align: center;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .play-btn i {
+        font-size: 20px;
+    }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const playButtons = document.querySelectorAll(".play-btn");
+
+        playButtons.forEach(btn => {
+            btn.addEventListener("click", function () {
+                const container = btn.closest(".video-container");
+                const image = container.querySelector(".video-thumb");
+                const video = container.querySelector(".video-player");
+
+                image.style.display = "none";
+                btn.style.display = "none";
+                video.style.display = "block";
+
+                video.play();
+            });
+        });
+    });
+</script>

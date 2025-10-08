@@ -23,7 +23,7 @@
                                     <div class="log-f-title">
                                         <h1>Insert your <strong>Email</strong> and <strong>Password</strong></h1>
                                     </div>
-                                    <form action="/admin/login" method="POST">
+                                    <form action="{{ route('admin.login') }}" method="POST">
                                         @csrf
                                         <div class="log-input">
                                             <input type="email" name="email" placeholder="Email">
@@ -47,7 +47,7 @@
                                         </div>
                                     </form>
                                     <div class="l-forget-link">
-                                        <p>New Account?</p><a href="{{ route('admin.register') }}"> Register Now</a>
+                                        {{-- <p>New Account?</p><a href="{{ route('admin.register') }}"> Register Now</a> --}}
                                     </div>
                                     <div class="l-privacy-f">
                                         <p>By logging into an account you agree to our <a href="#">Terms & Condition</a>,<a href="#"> Privacy Policy</a>, <a href="#"> Cookies Policy</a></p>

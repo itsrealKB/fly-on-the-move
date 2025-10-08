@@ -148,7 +148,7 @@
                             <li><a class="dropdown-item" href="#">Action</a></li>
                             <li><a class="dropdown-item" href="#">Another action</a></li>
                             <li>
-                                <form action="/admin/logout" method="POST">
+                                <form action="{{ route('admin.logout') }}" method="POST">
                                     @csrf
                                     <button class="dropdown-item">Logout</button>
                                 </form>

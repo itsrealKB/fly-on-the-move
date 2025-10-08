@@ -24,6 +24,7 @@ class AuthController extends Controller
     public function register(RegisterUserRequest $request)
     {
         $validated = $request->validated();
+        $validated['role'] = 'User';
         $user = User::create($validated);
 
         return redirect()->route('login')->with(

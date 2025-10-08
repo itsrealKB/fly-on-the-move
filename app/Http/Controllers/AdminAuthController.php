@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginUserRequest;
-use App\Mail\resetPassword;
+use App\Http\Requests\ResetPasswordRequest;
+use App\Http\Requests\UpdatePasswordRequest;
+use App\Mail\ResetPassword;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class AdminAuthController extends Controller
 {
@@ -92,47 +96,39 @@ class AdminAuthController extends Controller
         return view('auth.admin.reset-password');
     }
 
-    public function resetPassword (Request $request )
+    public function resetPassword (ResetPasswordRequest $request )
     {
-        $validated = $request->validate(
-            [
-                'email' => 'required|exists:users,email'
-            ],
-            [
-                'email.required' => 'Kindly Provide Your Email.',
-                'email.exists' => 'Email Not Found.'
-            ]
-        );
+        $validated = $request->validated();
 
-        Mail::to($validated)->send(new resetPassword());
+        DB::table('password_reset_tokens')->where('email', $request->email)->delete();
 
-         return redirect()->route('admin.login')->with(
-            [
-                'msg' => 'An Email Has Been Sent To You For Your Password Update Request',
-                'type' => 'success'
-            ]
-        );
+        $token = Str::random(64);
+
+        DB::table('password_reset_tokens')->insert([
+            'email' => $validated['email'],
+            'token' => $token
+        ]);
+
+        $resetLink = url("/admin/update-password/$token?email=" . urlencode($request->email));
+
+        Mail::to($validated)->send(new ResetPassword($resetLink));
+        return redirect()->route('admin.success.login');
     }
 
-    public function updatePasswordForm()
+    public function successLogin ()
     {
-        return view('auth.admin.update-password');
+        return view('auth.admin.success-login');
     }
 
-    public function updatePassword(Request $request)
+    public function updatePasswordForm($token, Request $request)
     {
-        $validated = $request->validate(
-            [
-                'password' => 'required',
-                'password_confirmation' => 'required',
-            ],
-            [
-                'password.required' => 'Kindly Provide Password.',
-                'password.confirmed' => 'Your Password Does Not Match.',
-                'password_confirmation.required' => 'Kindly Re-Enter Your Password.',
-            ]
-        );
+        $email = $request->query('email');
+        return view('auth.admin.update-password',compact('token', 'email'));
+    }
 
+    public function updatePassword(UpdatePasswordRequest $request)
+    {
+        $validated = $request->validated();
     }
 
 }

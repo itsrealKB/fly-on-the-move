@@ -19,7 +19,7 @@
                                     <p>A email has been send to your <strong>email@domain.com.</strong>Please check for an email from company and click on the included link to reset your password.</p>
                                 </div>
                                 <div class="l-login-btn">
-                                    <button>Back to login</button>
+                                    <button> <a href="{{ route('admin.login') }}" style="color:inherit; text-decoration: none;">Back to login</a></button>
                                 </div>
                             </div>
                         </div>

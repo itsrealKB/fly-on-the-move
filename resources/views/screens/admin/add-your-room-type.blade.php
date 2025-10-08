@@ -150,7 +150,7 @@
                                         <div class="profile-detail">
                                             <label for="">
                                                 <div class="profile-title">
-                                                    <h3>Description 
+                                                    <h3>Description
                                                         <!-- <button type="button" class="setquestion-hover" data-toggle="tooltip" data-placement="top" title="lorem ipsum">
                                                             <i class="fa-solid fa-circle-question"></i>
                                                         </button> -->
@@ -181,7 +181,7 @@
                                             <label for="">
                                                 <div class="profile-title">
                                                     <h3>Minimum number of guest
-                                                       
+
                                                     </h3>
                                                 </div>
                                             </label>
@@ -214,7 +214,7 @@
                                             <label for="">
                                                 <div class="profile-title">
                                                     <h3>Maximum number of guest
-                                                       
+
                                                     </h3>
                                                 </div>
                                             </label>

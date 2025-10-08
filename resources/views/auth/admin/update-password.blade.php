@@ -1,5 +1,4 @@
 @extends('layouts.admin.guest')
-
 @section('content')
     <main>
         <section class="login">
@@ -17,10 +16,12 @@
                                 <div class="succ-title">
                                     <h2>Update Your Password</h2>
                                 </div>
-                                <form action="/admin/update-password" method="POST">
+                                <form action="{{ route('admin.update.password.action') }}" method="POST">
                                     @csrf
+                                    <input type="hidden" name="email" value="{{ $email }}" />
+                                    <input type="hidden" name="token" value="{{ $token }}" />
                                     <div class="log-input">
-                                        <input type="password" name="passowrd" placeholder="Enter your updated password"/>
+                                        <input type="password" name="password" placeholder="Enter your updated password"/>
                                         @error('password')
                                             <small class="text-danger fw-bold fst-italic">{{ $message }}</small>
                                         @enderror
