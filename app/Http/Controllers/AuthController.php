@@ -74,4 +74,14 @@ class AuthController extends Controller
             ]
         );
     }
+
+    public function forgetPasswordFrom()
+    {
+        return view('auth.web.forget-password');
+    }
+
+    public function resetPasswordFrom()
+    {
+        return view('auth.web.reset-password');
+    }
 }

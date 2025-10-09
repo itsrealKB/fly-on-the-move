@@ -23,7 +23,7 @@
                                     <div class="log-f-title">
                                         <h1>Insert your <strong>Email</strong> and <strong>Password</strong></h1>
                                     </div>
-                                    <form action="{{ route('admin.login') }}" method="POST">
+                                    <form action="{{ route('admin.login.post') }}" method="POST">
                                         @csrf
                                         <div class="log-input">
                                             <input type="email" name="email" placeholder="Email">

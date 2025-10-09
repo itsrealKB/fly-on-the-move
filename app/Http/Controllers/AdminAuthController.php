@@ -63,6 +63,14 @@ class AdminAuthController extends Controller
                 // $request->session()->regenerate();
                 return redirect()->route('dashboard');
             }
+            else{
+                return back()->with(
+                    [
+                        'msg' => 'Invalid Email / Password',
+                        'type' => 'danger',
+                    ]
+                );
+            }
 
         } catch (Exception $e) {
             return back()->with(
@@ -106,29 +114,63 @@ class AdminAuthController extends Controller
 
         DB::table('password_reset_tokens')->insert([
             'email' => $validated['email'],
-            'token' => $token
+            'token' => $token,
+            'created_at' => now()
         ]);
 
         $resetLink = url("/admin/update-password/$token?email=" . urlencode($request->email));
 
         Mail::to($validated)->send(new ResetPassword($resetLink));
-        return redirect()->route('admin.success.login');
+        return redirect()->route('admin.success.login', $request->email);
     }
 
-    public function successLogin ()
+    public function successLogin ($email)
     {
-        return view('auth.admin.success-login');
+        return view('auth.admin.success-login',compact('email'));
     }
 
     public function updatePasswordForm($token, Request $request)
     {
         $email = $request->query('email');
+
+        $check = DB::table('password_reset_tokens')
+            ->where('email', $email)
+            ->where('token', $token)
+            ->first();
+
+        if (!$check) {
+            return redirect()
+                ->route('admin.login')
+                ->with([
+                    'msg' => 'Reset Pasword Link Expired, Kindly Request Again.',
+                    'type' => 'danger'
+                ]);
+        }
+
         return view('auth.admin.update-password',compact('token', 'email'));
     }
 
     public function updatePassword(UpdatePasswordRequest $request)
     {
-        $validated = $request->validated();
+        $user = User::where('email' , $request->email)->first();
+
+        if($user)
+        {
+            $user->password = $request->password;
+            $user->save();
+
+            DB::table('password_reset_tokens')
+            ->where('email', $request->email)
+            ->delete();
+        }
+
+
+        return redirect()
+            ->route('admin.login')
+            ->with([
+                'msg' => 'Your Password Updated Successfully, Now You Can Login.',
+                'type' => 'success'
+            ]);
     }
 
 }

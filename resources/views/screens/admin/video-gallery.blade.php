@@ -13,7 +13,7 @@
                         <div class="index-hi-msg">
                             <h2>Add Your Video Gallery</h2>
                         </div>
-                        <form action="{{ route('video.gallery') }}" method="POST" enctype="">
+                        <form action="{{ route('video.gallery.post') }}" method="POST" enctype="">
                             @csrf
                             <div class="profile-data-area">
                                 <div class="profile-data-area">

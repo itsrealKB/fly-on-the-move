@@ -15,8 +15,9 @@ class ImageGalleryController extends Controller
      */
     public function index()
     {
-        $galleryContent = Cms::where('page','image-gallery')
-                            ->where('section', 'hero')->with('cmsMeta')->get();
+       $galleryContent = Cms::where('page','image-gallery')
+                            ->where('section', 'hero')->with('cmsMeta')->first();
+
         return view('screens.web.gallery',compact('galleryContent'));
     }
 
@@ -25,14 +26,9 @@ class ImageGalleryController extends Controller
      */
     public function create()
     {
-        $galleryImages = Cms::where('page', 'image-gallery')
-                        ->where('section','hero')
-                        ->whereHas('cmsMeta', function($qeury){
-                            $qeury->where('meta_key','hero_section_gallery_image');
-                        })->with(['cmsMeta' => function($query){
-                            $query->where('meta_key','hero_section_gallery_image');
-                        }])->first()->cmsMeta ?? collect();
-        return view('screens.admin.image-gallery',compact('galleryImages'));
+        $galleryContent = Cms::where('page','image-gallery')
+                            ->where('section', 'hero')->with('cmsMeta')->first();
+        return view('screens.admin.image-gallery',compact('galleryContent'));
     }
 
     /**
@@ -40,7 +36,7 @@ class ImageGalleryController extends Controller
      */
     public function store(ImagesGalleryRequest $request)
     {
-        $validated = $request->validated();
+        // $validated = $request->validated();
 
         $cms = Cms::firstOrCreate(
             ['page' => 'image-gallery'],
@@ -112,9 +108,9 @@ class ImageGalleryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, CmsMeta $cmsMeta)
     {
-        //
+        dd($request->all(), $cmsMeta);
     }
 
     /**

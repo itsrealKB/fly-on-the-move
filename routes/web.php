@@ -4,25 +4,25 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ImageGalleryController;
 use App\Http\Controllers\VideoGalleryController;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Route;
 
+/* Web Login & Register Create */
+    Route::middleware('guest')->group(function(){
+        Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
+        Route::get('/register', [AuthController::class, 'registerForm'])->name('register');
+    });
+/* Web Login & Register Create */
 
-
-Route::controller(AuthController::class)->group(function(){
-    Route::get('/register', [AuthController::class, 'registerForm'])->name('register');
-    Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
-    Route::post('/register',[AuthController::class, 'register']);
-    Route::post('/login',[AuthController::class, 'login']);
-    Route::post('/logout',[AuthController::class, 'logout']);
-});
-
-Route::get('/forget-password', function () {
-    return view('auth.web.forget-password');
-})->name('forget.password');
-
-Route::get('/reset-password', function () {
-    return view('auth.web.reset-password');
-})->name('reset.password');
+/* Web Auth */
+    Route::controller(AuthController::class)->group(function(){
+        Route::post('/register', 'register')->name('register.post');
+        Route::post('/login', 'login')->name('login.post');
+        Route::post('/logout', 'logout')->name('logout');
+        Route::get('/forget-password','forgetPasswordFrom')->name('forget.password');
+        Route::get('/reset-password','resetPasswordFrom')->name('reset.password');
+    });
+/* Web Auth */
 
 Route::get('/', function () {
     return view('screens.web.index');
@@ -87,7 +87,6 @@ Route::get('/faq', function () {
 Route::get('/partner-help', function () {
     return view('screens.web.partner-help');
 })->name('partner.help');
-
 
 /* Admin Routes */
 
@@ -222,17 +221,17 @@ Route::get('/partner-help', function () {
     })->name('hotel');
 
     Route::controller(AdminAuthController::class)->prefix('admin')->group(function () {
-        // Route::get('/register',[AdminAuthController::class,'registerForm'])->name('admin.register');
-        Route::get('/login',[AdminAuthController::class,'loginForm'])->name('admin.login');
-        // Route::post('/register',[AdminAuthController::class,'register']);
-        Route::post('/login',[AdminAuthController::class,'login'])->name('admin.login');
-        Route::post('/logout',[AdminAuthController::class,'logout'])->name('admin.logout');
-        Route::get('/reset-password',[AdminAuthController::class,'resetPasswordForm'])->name('admin.reset.password');
-        Route::post('/reset-password',[AdminAuthController::class,'resetPassword'])->name('admin.reset.password');
-        Route::get('/update-password/{token}',[AdminAuthController::class,'updatePasswordForm'])->name('admin.update.password');
-        Route::post('/update-password',[AdminAuthController::class,'updatePassword'])->name('admin.update.password.action');
-        Route::get('/success-login',[AdminAuthController::class,'successLogin'])->name('admin.success.login');
-    })->middleware(['auth']);
+        // Route::get('/register','registerForm')->name('admin.register');
+        // Route::post('/register','register');
+        Route::get('/login','loginForm')->name('admin.login')->middleware('guest');
+        Route::post('/login','login')->name('admin.login.post');
+        Route::post('/logout','logout')->name('admin.logout');
+        Route::get('/reset-password','resetPasswordForm')->name('admin.reset.password');
+        Route::post('/reset-password','resetPassword')->name('admin.reset.password.post');
+        Route::get('/update-password/{token}','updatePasswordForm')->name('admin.update.password');
+        Route::post('/update-password','updatePassword')->name('admin.update.password.post');
+        Route::get('/success-login/{email}','successLogin')->name('admin.success.login');
+    });
 
 /* Admin Routes */
 
@@ -241,11 +240,11 @@ Route::get('/gallery',[ImageGalleryController::class,'index'])->name('gallery');
 
 Route::prefix('cms')->group(function(){
     Route::get('/image-gallery', [ImageGalleryController::class,'create'])->name('image.gallery');
-    Route::post('/image-gallery', [ImageGalleryController::class,'store'])->name('image.gallery');
+    Route::post('/image-gallery', [ImageGalleryController::class,'store'])->name('image.gallery.post');
     Route::get('/image-gallery/{cmsMeta}', [ImageGalleryController::class,'show'])->name('view.gallery.image');
     Route::get('/image-gallery/edit/{cmsMeta}', [ImageGalleryController::class,'edit'])->name('edit.gallery.image');
     Route::get('/video-gallery', [VideoGalleryController::class,'create'])->name('video.gallery');
-    Route::post('/video-gallery', [VideoGalleryController::class,'store'])->name('video.gallery');
+    Route::post('/video-gallery', [VideoGalleryController::class,'store'])->name('video.gallery.post');
 
 });
 

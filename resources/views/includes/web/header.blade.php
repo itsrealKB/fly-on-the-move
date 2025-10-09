@@ -31,7 +31,7 @@
                         <a href="{{ route('register') }}" class="operation-btn">Register</a>
                     @endguest
                     @auth
-                        <form action="/logout" method="POST">
+                        <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button class="operation-btn border-0">Logout</button>
                         </form>

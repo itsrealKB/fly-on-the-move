@@ -18,7 +18,7 @@
                                     <h2>Reset Password</h2>
                                     <p>Enter your email address and we’ll send you an email with instructions to reset your password</p>
                                 </div>
-                                <form action="{{ route('admin.reset.password') }}" method="POST">
+                                <form action="{{ route('admin.reset.password.post') }}" method="POST">
                                     @csrf
                                     <div class="log-input">
                                         <input type="email" name="email" placeholder="Email">

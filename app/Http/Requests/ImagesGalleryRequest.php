@@ -25,7 +25,7 @@ class ImagesGalleryRequest extends FormRequest
             "banner_image" => 'required|mimes:jpg,bmp,png,jpeg,gif,webp',
             "banner_text" => 'required',
             "image_gallery" => 'required|array',
-            // 'image_gallery.*' => 'mimes:jpg,bmp,png,jpeg,gif,webp',
+            'image_gallery.*' => 'mimes:jpg,bmp,png,jpeg,gif,webp',
         ];
     }
 
@@ -37,7 +37,7 @@ class ImagesGalleryRequest extends FormRequest
             'banner_text.required' => 'Please Provide Your Banner Text',
             'image_gallery.required' => 'Please Provide Atleast One Image',
             'image_gallery.array' => 'Please Upload Valid Image Files',
-            // 'image_gallery.*.mimes' => 'Gallery Images Must Be JPG, PNG, JPEG, BMP, GIF, or WEBP.',
+            'image_gallery.*.mimes' => 'Gallery Images Must Be JPG, PNG, JPEG, BMP, GIF, or WEBP.',
         ];
     }
 }

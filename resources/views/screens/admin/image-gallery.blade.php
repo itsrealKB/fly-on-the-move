@@ -5,6 +5,27 @@
 @endpush
 
 @section('content')
+    @php
+        $galleryImages = [];
+        $banner_text = '';
+        $banner_image = '';
+
+        foreach ($galleryContent->cmsMeta as $item) {
+
+            if($item->meta_key == 'hero_section_gallery_image')
+            {
+                $galleryImages[] = $item;
+            }
+            elseif($item->meta_key == 'hero_section_banner_text')
+            {
+                $banner_text = $item->meta_value;
+            }
+            elseif($item->meta_key == 'hero_section_banner_image')
+            {
+                $banner_image = $item->meta_value;
+            }
+        }
+    @endphp
     <main>
         <section>
             <div class="container-fluid">
@@ -26,7 +47,7 @@
                             <h2>Add Your Image Gallery</h2>
                         </div>
                         <div class="profile-data-area">
-                            <form action="{{ route('image.gallery') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('image.gallery.post') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="profile-data-area">
                                     <div class="profile-detail ">
@@ -65,11 +86,9 @@
                                         </label>
                                         <div class="input-div">
                                             <input type="file" name="image_gallery[]" id="image-gallery" multiple/>
-
-                                            @error('image_gallery')
-                                                <small class="fw-bold fst-italic text-danger">{{ $message }}</small>
-                                            @enderror
-
+                                            @if($errors->has('image_gallery*'))
+                                                <small class="fw-bold fst-italic text-danger">{{ $errors->first('image_gallery*') }}</small>
+                                            @endif
                                         </div>
                                     </div>
                                     {{-- <div class="profile-detail border-radius-last-child border-radius">
@@ -139,15 +158,15 @@
                             </form>
                         </div>
 
-                        @if($galleryImages->isNotEmpty())
+                        @if(count($galleryImages) > 0)
                             <div class="search-opartion-area">
                                 <div class="operatio-hd-ser">
                                     <h2>Preview</h2>
                                 </div>
-                                @foreach ($galleryImages as $meta )
+                                @foreach ($galleryImages as $image )
                                     <div class="opertaion-detail-area">
                                         <div class="opr-img">
-                                            <img src="{{ asset('storage/'.$meta->meta_value) }}" alt="">
+                                            <img src="{{ asset('storage/'.$image->meta_value) }}" alt="">
                                         </div>
                                             <div class="op-dt-area">
                                                 <div class="operation-detail">
@@ -161,8 +180,8 @@
                                                 </div>
                                                 <div class="operation-detail">
                                                     <div class="op-btn">
-                                                        <button><a href="{{ route('view.gallery.image',$meta->id) }}" style="text-decoration:none;color:inherit;">Preview</a></button>
-                                                        <button><a href="{{ route('edit.gallery.image',$meta->id) }}" style="text-decoration:none;color:inherit;">Edit</a></button>
+                                                        <button><a href="{{ route('view.gallery.image',$image->id) }}" style="text-decoration:none;color:inherit;">Preview</a></button>
+                                                        <button><a href="{{ route('edit.gallery.image',$image->id) }}" style="text-decoration:none;color:inherit;">Edit</a></button>
                                                     </div>
                                                     <div class="op-btn">
                                                         {{-- <button>Unpublish</button> --}}

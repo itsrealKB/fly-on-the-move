@@ -63,7 +63,7 @@
                 class="img-fluid" alt="Phone image">
             </div>
             <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                <form action="/login" method="POST">
+                <form action="{{ route('login.post') }}" method="POST">
                     @csrf
                 <!-- Email input -->
                 <div data-mdb-input-init class="form-outline mb-4">
