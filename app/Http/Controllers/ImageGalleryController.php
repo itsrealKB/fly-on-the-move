@@ -36,8 +36,6 @@ class ImageGalleryController extends Controller
      */
     public function store(ImagesGalleryRequest $request)
     {
-        // $validated = $request->validated();
-
         $cms = Cms::firstOrCreate(
             ['page' => 'image-gallery'],
             ['section' => 'hero']
@@ -116,7 +114,7 @@ class ImageGalleryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(CmsMeta $cmsMeta)
     {
         //
     }

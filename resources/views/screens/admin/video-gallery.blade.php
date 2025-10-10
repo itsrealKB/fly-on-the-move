@@ -1,19 +1,70 @@
 @extends('layouts.admin.app')
 
 @push('styles')
+    <style>
+        .video-add-btn, .video-toggle-btn {
+            width: fit-content;
+            background: #16afaf;
+            text-align: center;
+            border-radius: 5px;
+            padding: 14px 30px;
+            text-decoration: none;
+            color: white;
+            border: none;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
 
+        .profile-detail {
+            margin-bottom: 30px;
+        }
+
+        .video-remove-btn {
+            background: #0d6efd;
+            color: #fff;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .video-remove-btn {
+            background: #dc3545;
+        }
+
+        .video-btn {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            width: 100%;
+        }
+    </style>
 @endpush
 
 @section('content')
     <main>
         <section>
             <div class="container-fluid">
+                <div class="row my-5">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        @if(session('msg'))
+                            <div class="alert alert-{{ session('type') }} alert-dismissible" role="alert">
+                                <div> {{ session('msg') }}</div>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
                 <div class="row">
                     <div class="col-xl-12 col-12">
                         <div class="index-hi-msg">
                             <h2>Add Your Video Gallery</h2>
                         </div>
-                        <form action="{{ route('video.gallery.post') }}" method="POST" enctype="">
+                        <form action="{{ route('video.gallery.post') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="profile-data-area">
                                 <div class="profile-data-area">
@@ -25,6 +76,9 @@
                                         </label>
                                         <div class="input-div">
                                             <input type="file" name="banner_image" id="banner_image"/>
+                                            @error('banner_image')
+                                                <small class="fw-bold fst-italic text-danger">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="profile-detail border-radius-last-child border-radius">
@@ -35,6 +89,9 @@
                                         </label>
                                         <div class="input-div">
                                             <input type="text" name="banner_text" id="banner_text"/>
+                                            @error('banner_text')
+                                                <small class="fw-bold fst-italic text-danger">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -50,11 +107,19 @@
                                                 </div>
                                             </label>
                                             <div class="input-div">
-                                                <input type="file" name="video_thumbnail[]" multiple/>
-                                                <input type="text" name="video_link[]" placeholder="Enter video Link"/>
-                                                <div class="video-btn">
-                                                    <button type="button" class="video-remove-btn"
-                                                        style="display:none;">Remove</button>
+                                                <input type="file" name="video_thumbnail[]"/>
+                                                @if($errors->has('video_thumbnail*'))
+                                                    <small class="fw-bold fst-italic text-danger">{{ $errors->first('video_thumbnail*') }}</small>
+                                                @endif
+                                                <input type="text" name="video_link[]" class="video-input" placeholder="Enter video Link"/>
+                                                @if($errors->has('video_link*'))
+                                                    <small class="fw-bold fst-italic text-danger">{{ $errors->first('video_link*') }}</small>
+                                                @elseif($errors->has('video_file*'))
+                                                    <small class="fw-bold fst-italic text-danger">{{ $errors->first('video_file*') }}</small>
+                                                @endif
+                                                <div class="video-btn d-flex justify-content-between">
+                                                    <button type="button" class="video-toggle-btn">Upload Video</button>
+                                                    <button type="button" class="video-remove-btn" style="display:none;">Remove</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -190,73 +255,62 @@
     </main>
 @endsection
 
-<style>
-    .video-add-btn {
-        width: fit-content;
-        background: #16afaf;
-        text-align: center;
-        border-radius: 5px;
-        padding: 14px 30px;
-        text-decoration: none;
-        color: white;
-        border: none;
-        display: flex;
-        justify-content: end;
-        align-items: center;
-    }
+@push('scripts')
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const addBtn = document.querySelector(".video-add-btn");
+            const wrapper = document.getElementById("video-section-wrapper");
 
-    .profile-detail {
-        margin-bottom: 30px;
-    }
+            addBtn.addEventListener("click", function (e) {
+                e.preventDefault();
 
-    .video-remove-btn {
-        background: #0d6efd;
-        color: #fff;
-        border: none;
-        padding: 14px 30px;
-        border-radius: 6px;
-        cursor: pointer;
-        margin-top: 10px;
-    }
+                // Clone the first box
+                const originalBox = wrapper.querySelector(".profile-detail");
+                const clone = originalBox.cloneNode(true);
 
-    .video-remove-btn {
-        background: #dc3545;
-    }
+                // Clear inputs
+                clone.querySelectorAll("input").forEach(input => input.value = "");
 
-    .video-btn {
-        display: flex;
-        justify-content: end;
-        align-items: center;
-        width: 100%;
-    }
-</style>
+                // Show remove button in clone
+                const removeBtn = clone.querySelector(".video-remove-btn");
+                removeBtn.style.display = "inline-block";
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const addBtn = document.querySelector(".video-add-btn");
-        const wrapper = document.getElementById("video-section-wrapper");
+                // Attach click event to remove button
+                removeBtn.addEventListener("click", function () {
+                    clone.remove();
+                });
 
-        addBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-
-            // Clone the first box
-            const originalBox = wrapper.querySelector(".profile-detail");
-            const clone = originalBox.cloneNode(true);
-
-            // Clear inputs
-            clone.querySelectorAll("input").forEach(input => input.value = "");
-
-            // Show remove button in clone
-            const removeBtn = clone.querySelector(".video-remove-btn");
-            removeBtn.style.display = "inline-block";
-
-            // Attach click event to remove button
-            removeBtn.addEventListener("click", function () {
-                clone.remove();
+                // Append the cloned box
+                wrapper.appendChild(clone);
             });
-
-            // Append the cloned box
-            wrapper.appendChild(clone);
         });
-    });
-</script>
+
+        document.addEventListener("click", function (e) {
+            if (e.target.classList.contains("video-toggle-btn")) {
+                const btn = e.target;
+                const inputDiv = btn.closest(".input-div");
+                const videoInput = inputDiv.querySelector(".video-input");
+                const thumbnailInput = inputDiv.querySelector("input[name='video_thumbnail[]']");
+
+                if (!videoInput || !thumbnailInput) return;
+
+                if (videoInput.type === "text") {
+                    videoInput.type = "file";
+                    videoInput.name = "video_file[]";
+                    videoInput.placeholder = "";
+                    btn.textContent = "Upload Link";
+
+                    // thumbnailInput.style.display = "block";
+                } else {
+                    videoInput.type = "text";
+                    videoInput.name = "video_link[]";
+                    videoInput.placeholder = "Enter video link";
+                    btn.textContent = "Upload Video";
+                    // thumbnailInput.style.display = "none";
+                }
+            }
+        });
+    </script>
+@endpush
+
+

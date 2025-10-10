@@ -48,9 +48,9 @@ Route::get('/rental-gear-rent-this-rod', function () {
     return view('screens.web.rental-gear-rent-this-rod');
 })->name('rental.gear');
 
-Route::get('/all-gallery-video', function () {
-    return view('screens.web.all-gallery-video');
-})->name('gallery.video');
+// Route::get('/all-gallery-video', function () {
+//     return view('screens.web.all-gallery-video');
+// })->name('gallery.video');
 
 Route::get('/about', function () {
     return view('screens.web.about');
@@ -237,6 +237,7 @@ Route::get('/partner-help', function () {
 
 
 Route::get('/gallery',[ImageGalleryController::class,'index'])->name('gallery');
+Route::get('/video-gallery', [VideoGalleryController::class,'index'])->name('gallery.video');
 
 Route::prefix('cms')->group(function(){
     Route::get('/image-gallery', [ImageGalleryController::class,'create'])->name('image.gallery');
@@ -245,7 +246,6 @@ Route::prefix('cms')->group(function(){
     Route::get('/image-gallery/edit/{cmsMeta}', [ImageGalleryController::class,'edit'])->name('edit.gallery.image');
     Route::get('/video-gallery', [VideoGalleryController::class,'create'])->name('video.gallery');
     Route::post('/video-gallery', [VideoGalleryController::class,'store'])->name('video.gallery.post');
-
 });
 
 

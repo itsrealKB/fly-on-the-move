@@ -12,17 +12,35 @@
 
         foreach ($galleryContent->cmsMeta as $item) {
 
-            if($item->meta_key == 'hero_section_gallery_image')
-            {
-                $galleryImages[] = $item;
-            }
-            elseif($item->meta_key == 'hero_section_banner_text')
-            {
-                $banner_text = $item->meta_value;
-            }
-            elseif($item->meta_key == 'hero_section_banner_image')
-            {
-                $banner_image = $item->meta_value;
+            // if($item->meta_key == 'hero_section_gallery_image')
+            // {
+            //     $galleryImages[] = $item;
+            // }
+            // elseif($item->meta_key == 'hero_section_banner_text')
+            // {
+            //     $banner_text = $item->meta_value;
+            // }
+            // elseif($item->meta_key == 'hero_section_banner_image')
+            // {
+            //     $banner_image = $item->meta_value;
+            // }
+
+            switch ($item) {
+                case ($item->meta_key == 'hero_section_gallery_image'):
+                    $galleryImages[] = $item;
+                    break;
+
+                case ($item->meta_key == 'hero_section_banner_text'):
+                    $banner_text = $item->meta_value;
+                    break;
+
+                case ($item->meta_key == 'hero_section_banner_image'):
+                    $banner_image = $item->meta_value;
+                    break;
+
+                default:
+                    # code...
+                    break;
             }
         }
     @endphp

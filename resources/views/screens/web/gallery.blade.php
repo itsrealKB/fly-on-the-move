@@ -5,25 +5,25 @@
 @endpush
 
 @section('content')
-        @php
-            $galleryImages = [];
-            $banner_text = '';
-            $banner_image = '';
+    @php
+        $galleryImages = [];
+        $banner_text = '';
+        $banner_image = '';
 
-            foreach ($galleryContent->cmsMeta as $item) {
+        foreach ($galleryContent->cmsMeta as $item) {
 
-                if($item->meta_key == 'hero_section_gallery_image'){
-                    $galleryImages[] = $item;
-                }
-                elseif($item->meta_key == 'hero_section_banner_text'){
-                    $banner_text = $item->meta_value;
-                }
-                elseif($item->meta_key == 'hero_section_banner_image'){
-                    $banner_image = $item->meta_value;
-                }
+            if($item->meta_key == 'hero_section_gallery_image'){
+                $galleryImages[] = $item;
             }
+            elseif($item->meta_key == 'hero_section_banner_text'){
+                $banner_text = $item->meta_value;
+            }
+            elseif($item->meta_key == 'hero_section_banner_image'){
+                $banner_image = $item->meta_value;
+            }
+        }
 
-        @endphp
+    @endphp
     <main>
         <section class="inner-section inner-section-2" style="background-image: url({{ asset('storage/'.$banner_image ?? '') }});">
             <div class="container">
