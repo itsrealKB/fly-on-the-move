@@ -2,10 +2,14 @@
 
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FreshWaterController;
 use App\Http\Controllers\ImageGalleryController;
+use App\Http\Controllers\RentalGearController;
+use App\Http\Controllers\SaltWaterController;
 use App\Http\Controllers\VideoGalleryController;
-use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Route;
+
+
 
 /* Web Login & Register Create */
     Route::middleware('guest')->group(function(){
@@ -36,17 +40,17 @@ Route::get('/view-deals', function () {
     return view('screens.web.view-deals');
 })->name('view.deals');
 
-Route::get('/freshwater', function () {
-    return view('screens.web.freshwater');
-})->name('freshwater');
+// Route::get('/freshwater', function () {
+//     return view('screens.web.freshwater');
+// })->name('freshwater');
 
-Route::get('/salt-water', function () {
-    return view('screens.web.salt-water');
-})->name('salt.water');
+// Route::get('/salt-water', function () {
+//     return view('screens.web.salt-water');
+// })->name('salt.water');
 
-Route::get('/rental-gear-rent-this-rod', function () {
-    return view('screens.web.rental-gear-rent-this-rod');
-})->name('rental.gear');
+// Route::get('/rental-gear-rent-this-rod', function () {
+//     return view('screens.web.rental-gear-rent-this-rod');
+// })->name('rental.gear');
 
 // Route::get('/all-gallery-video', function () {
 //     return view('screens.web.all-gallery-video');
@@ -238,14 +242,28 @@ Route::get('/partner-help', function () {
 
 Route::get('/gallery',[ImageGalleryController::class,'index'])->name('gallery');
 Route::get('/video-gallery', [VideoGalleryController::class,'index'])->name('gallery.video');
+Route::get('/freshwater', [FreshWaterController::class,'index'])->name('freshwater');
+Route::get('/saltwater', [SaltWaterController::class,'index'])->name('salt.water');
+Route::get('/rental-gear', [RentalGearController::class,'index'])->name('rental.gear');
 
 Route::prefix('cms')->group(function(){
     Route::get('/image-gallery', [ImageGalleryController::class,'create'])->name('image.gallery');
     Route::post('/image-gallery', [ImageGalleryController::class,'store'])->name('image.gallery.post');
     Route::get('/image-gallery/{cmsMeta}', [ImageGalleryController::class,'show'])->name('view.gallery.image');
     Route::get('/image-gallery/edit/{cmsMeta}', [ImageGalleryController::class,'edit'])->name('edit.gallery.image');
+
     Route::get('/video-gallery', [VideoGalleryController::class,'create'])->name('video.gallery');
     Route::post('/video-gallery', [VideoGalleryController::class,'store'])->name('video.gallery.post');
+
+    Route::get('/freshwater', [FreshWaterController::class,'create'])->name('video.freshwater');
+    Route::post('/freshwater', [FreshWaterController::class,'store'])->name('video.freshwater.post');
+
+    Route::get('/saltwater', [SaltWaterController::class,'create'])->name('video.saltwater');
+    Route::post('/saltwater', [SaltWaterController::class,'store'])->name('video.saltwater.post');
+
+    Route::get('/rental-gear', [RentalGearController::class,'create'])->name('cms.rental.gear');
+    Route::post('/rental-gear', [RentalGearController::class,'store'])->name('rental.gear.post');
+
 });
 
 

@@ -41,6 +41,8 @@ class ImageGalleryController extends Controller
             ['section' => 'hero']
         );
 
+        $cms->cmsMeta()->delete();
+
         if($request->hasFile('banner_image') && $request->hasFile('image_gallery')){
 
             $banner_image = $request->file('banner_image');

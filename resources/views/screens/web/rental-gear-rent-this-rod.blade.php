@@ -5,6 +5,28 @@
 @endpush
 
 @section('content')
+    @php
+        $banner_image = null;
+        $content = null;
+
+        foreach ($rentalRodContent->cmsMeta as $item) {
+
+            switch ($item) {
+
+                case ($item->meta_key == 'hero_section_banner_image'):
+                    $banner_image = $item->meta_value;
+                    break;
+
+                case ($item->meta_key == 'hero_section_banner_content'):
+                    $content = json_decode($item->meta_value);
+                    break;
+
+                default:
+                    # code...
+                    break;
+            }
+        }
+    @endphp
     <section class="tearm-condi-sec">
         <div class="container">
             <div class="row">
@@ -13,19 +35,19 @@
                         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-95e3d1f"
                         >
                             <div class="elementor-widget-wrap elementor-element-populated">
-                                <div class="elementor-element elementor-element-47cc901 dce_masking-none elementor-widget elementor-widget-image"
+                                <div class="elementor-element elementor-element-47cc901 dce_masking-none elementor-widget elementor-widget-image mb-5"
                                 >
                                     <div class="elementor-widget-container text-center">
                                         <img decoding="async" width="250" height="250"
-                                            src="https://onlinedemolink.com/fly/wp-content/uploads/2023/09/Logo.png"
+                                            src="{{ asset('storage/' . $banner_image) }}"
                                             class="attachment-full size-full wp-image-78" alt=""
-                                            srcset="https://onlinedemolink.com/fly/wp-content/uploads/2023/09/Logo.png 250w, https://onlinedemolink.com/fly/wp-content/uploads/2023/09/Logo-150x150.png 150w"
-                                            sizes="(max-width: 250px) 100vw, 250px">
+                                            {{-- srcset="https://onlinedemolink.com/fly/wp-content/uploads/2023/09/Logo.png 250w, https://onlinedemolink.com/fly/wp-content/uploads/2023/09/Logo-150x150.png 150w" --}}
+                                            sizes="(max-width: 250px) 100vw, 250px"
+                                            >
                                     </div>
                                 </div>
-                                <div class="elementor-element elementor-element-c800599 elementor-widget elementor-widget-text-editor"
-                                    >
-                                    <div class="elementor-widget-container text-center">
+                                <div class="elementor-element elementor-element-c800599 elementor-widget elementor-widget-text-editor">
+                                    {{-- <div class="elementor-widget-container text-center">
                                         <p><em>Rent This Rod</em>&nbsp;is the premier source for renting premium fly-angling
                                             equipment to traveling anglers or those who are chasing fish species outside of
                                             their norm.&nbsp; Rather than purchasing costly equipment that might go unused
@@ -69,7 +91,8 @@
                                         <p><a href="http://www.rentthisrod.com/">www.rentthisrod.com</a></p>
                                         <p>rentals@rentthisrod.com</p>
                                         <p>828-712-6267</p>
-                                    </div>
+                                    </div> --}}
+                                    {!! $content !!}
                                 </div>
                             </div>
                         </div>

@@ -215,6 +215,24 @@
                                     Video Gallery
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ route('video.freshwater') }}"
+                                    class="checked-link-side {{ request()->is('cms/freshwater') ? 'active' : '' }}">
+                                    Destinations - FreshWater
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('video.saltwater') }}"
+                                    class="checked-link-side {{ request()->is('cms/saltwater') ? 'active' : '' }}">
+                                    Destinations - SaltWater
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('cms.rental.gear') }}"
+                                    class="checked-link-side {{ request()->is('cms/rental-gear') ? 'active' : '' }}">
+                                    Rental Gear
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>

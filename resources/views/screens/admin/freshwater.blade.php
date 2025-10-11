@@ -62,9 +62,9 @@
                 <div class="row">
                     <div class="col-xl-12 col-12">
                         <div class="index-hi-msg">
-                            <h2>Add Your Video Gallery</h2>
+                            <h2>Add Your Fresh Water Videos</h2>
                         </div>
-                        <form action="{{ route('video.gallery.post') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('video.freshwater.post') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="profile-data-area">
                                 <div class="profile-data-area">
@@ -128,7 +128,7 @@
                             </div>
                         </form>
 
-                        <div class="search-opartion-area">
+                        {{-- <div class="search-opartion-area">
                             <div class="operatio-hd-ser">
                                 <h2>Search Results</h2>
                             </div>
@@ -184,7 +184,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
