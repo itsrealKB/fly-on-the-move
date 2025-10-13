@@ -16,8 +16,12 @@ class SaltWaterController extends Controller
      */
     public function index()
     {
-        $saltWaterContent = Cms::where('page','saltwater')
-                        ->where('section', 'hero')->with('cmsMeta')->first();
+        $saltWaterContent = Cms::where([
+                    ['page','saltwater'],
+                    ['section', 'hero']
+                ])
+                ->with('cmsMeta')
+                ->first();
         return view('screens.web.salt-water',compact('saltWaterContent'));
     }
 
@@ -72,6 +76,7 @@ class SaltWaterController extends Controller
 
         $videoData = [];
 
+        // If User Uploading Video Files
         if($request->hasFile('video_file')){
             foreach ($request->file('video_file') as $key =>  $video) {
                 $videoName = Str::uuid().'_gallery_video.'.$video->getClientOriginalExtension();
@@ -88,6 +93,8 @@ class SaltWaterController extends Controller
 
             }
         }
+
+        // If User Providing Online Video Links
         if($request->video_link && count($request->video_link) > 0){
 
             foreach ($request->video_link as  $link) {

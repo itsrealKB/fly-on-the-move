@@ -246,7 +246,8 @@ Route::get('/freshwater', [FreshWaterController::class,'index'])->name('freshwat
 Route::get('/saltwater', [SaltWaterController::class,'index'])->name('salt.water');
 Route::get('/rental-gear', [RentalGearController::class,'index'])->name('rental.gear');
 
-Route::prefix('cms')->group(function(){
+Route::prefix('cms')->group(function()
+{
     Route::get('/image-gallery', [ImageGalleryController::class,'create'])->name('image.gallery');
     Route::post('/image-gallery', [ImageGalleryController::class,'store'])->name('image.gallery.post');
     Route::get('/image-gallery/{cmsMeta}', [ImageGalleryController::class,'show'])->name('view.gallery.image');

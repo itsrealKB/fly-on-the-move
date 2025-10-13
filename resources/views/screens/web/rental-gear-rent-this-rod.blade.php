@@ -17,7 +17,7 @@
                     $banner_image = $item->meta_value;
                     break;
 
-                case ($item->meta_key == 'hero_section_banner_content'):
+                case ($item->meta_key == 'hero_section_content'):
                     $content = json_decode($item->meta_value);
                     break;
 

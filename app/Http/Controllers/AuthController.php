@@ -38,6 +38,7 @@ class AuthController extends Controller
 
     public function login(LoginUserRequest $request)
     {
+
         try {
 
             $validated = $request->validated();
@@ -47,6 +48,15 @@ class AuthController extends Controller
             if (Auth::attempt($validated, $remember)) {
                 // $request->session()->regenerate();
                 return redirect()->route('index');
+            }
+            else{
+                return back()->with(
+                [
+                    'msg' => 'Invalid Email / Password',
+                    'type' => 'danger',
+                    'error' => $e->getMessage()
+                ]
+            );
             }
 
         } catch (Exception $e) {
