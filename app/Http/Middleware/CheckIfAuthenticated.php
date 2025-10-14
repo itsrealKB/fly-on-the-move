@@ -18,12 +18,13 @@ class CheckIfAuthenticated
     {
         if(Auth::check()){
 
-            if(Auth::user()->isAdmin()){
-                return back();
-            }
-            else{
-                return back();
-            }
+            // if(Auth::user()->isAdmin()){
+            //     return back();
+            // }
+            // else{
+            //     return back();
+            // }
+            return back();
         }
 
         return $next($request);
